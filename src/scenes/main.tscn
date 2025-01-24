@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=3 format=3 uid="uid://bkmgnco2558xt"]
+
+[ext_resource type="PackedScene" uid="uid://wrw715mu8cs1" path="res://src/entities/bubble/bubble.tscn" id="1_wv2o0"]
 
 [sub_resource type="Environment" id="Environment_5q0ea"]
 background_mode = 1
@@ -10,7 +12,23 @@ background_color = Color(0.564122, 0.795389, 0.915492, 1)
 environment = SubResource("Environment_5q0ea")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01131)
 projection = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
+
+[node name="bubble" parent="." instance=ExtResource("1_wv2o0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.11204)
+
+[node name="bubble2" parent="." instance=ExtResource("1_wv2o0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.343918, 0, -5.11204)
+
+[node name="bubble3" parent="." instance=ExtResource("1_wv2o0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.464745, 0, -5.11204)
+
+[node name="bubble4" parent="." instance=ExtResource("1_wv2o0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14605, 0, -5.11204)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.783357, 0.621572, 0, -0.621572, 0.783357, 0, 1.11784, -1.99558)

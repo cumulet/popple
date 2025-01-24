@@ -14,3 +14,7 @@ config/name="popple"
 run/main_scene="res://src/scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Utils="*res://src/common/Utils.gd"
