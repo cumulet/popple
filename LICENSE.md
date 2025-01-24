@@ -1,2 +1,1 @@
-
-Copyright (C) 2025 
+Copyright (C) cumulet 2025

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmgnco2558xt"]
+
+[sub_resource type="Environment" id="Environment_5q0ea"]
+background_mode = 1
+background_color = Color(0.564122, 0.795389, 0.915492, 1)
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5q0ea")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+projection = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
