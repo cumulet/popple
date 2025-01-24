@@ -1,8 +1,6 @@
 class_name Bubble
 extends RigidBody3D
 
-signal popped
-
 const color_bubble_dictionary: = {
 	"Yellow": Color.YELLOW,
 	"Red": Color.RED,
@@ -15,21 +13,27 @@ const size_bubble_dictionary: = {
 	"Big": Vector3(0.5, 0.5, 0.5)
 }
 
-
 @onready var mesh_bubble: MeshInstance3D = $MeshBubble
-
-
+var screenSize = DisplayServer.window_get_size()
 var target_scale: Vector3
 
 var tween_scale: Tween
 var tween_hover: Tween
+var camera_3d : Camera3D
+var screen_ratio: float
 
 func _ready() -> void:
+	screen_ratio = screenSize.x/screenSize.y
 	scale = Vector3(0.05, 0.05, 0.05)
 	target_scale = _randomize_scale()
 	mesh_bubble.get_surface_override_material(0).albedo_color = _randomize_color()
 	appear()
 
+func _process(delta: float) -> void:
+	print(global_position.x, camera_3d.size)
+	if global_position.x > camera_3d.size-.5 || global_position.x < -camera_3d.size+.5:
+		print("out")
+		linear_velocity * -.9
 
 func appear():
 	if tween_scale != null:
@@ -54,10 +58,7 @@ func _randomize_scale() -> Vector3:
 
 
 func _on_trigger_area_3d_mouse_entered() -> void:
-	print("in")
 	hover(0.1)
-	popped.emit()
 
 func _on_trigger_area_3d_mouse_exited() -> void:
-	print("out")
 	hover(-0.1)

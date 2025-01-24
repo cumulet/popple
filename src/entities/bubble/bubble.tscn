@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://wrw715mu8cs1"]
+[gd_scene load_steps=6 format=3 uid="uid://rdw1nuc54c4s"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/bubble.gd" id="1_6jh01"]
 
@@ -13,7 +13,7 @@ resource_local_to_scene = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_1a62h"]
 radius = 0.536595
 
-[node name="Bubble" type="RigidBody3D" groups=["Bubbles"]]
+[node name="Bubble" type="RigidBody3D"]
 mass = 0.001
 gravity_scale = 0.01
 can_sleep = false
