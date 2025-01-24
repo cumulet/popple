@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wrw715mu8cs1"]
 
-[ext_resource type="Script" path="res://entities/bubble/bubble_interactor.gd" id="1_yec80"]
+[ext_resource type="Script" path="res://src/entities/bubble/bubble_interactor.gd" id="1_yec80"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_v8ygd"]
 
@@ -15,3 +15,6 @@ script = ExtResource("1_yec80")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bubbleInteractor"]
 shape = SubResource("SphereShape3D_b2tya")
+
+[connection signal="mouse_entered" from="bubbleInteractor" to="bubbleInteractor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="bubbleInteractor" to="bubbleInteractor" method="_on_mouse_exited"]
