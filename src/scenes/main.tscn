@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=5 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
+[ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
 [ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
 
 [node name="main" type="Node3D"]
@@ -26,3 +27,6 @@ amountAtStart = 20
 [node name="spawnPosition" type="Node3D" parent="bubbleSpawner"]
 
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
+
+[node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -7.04729)
