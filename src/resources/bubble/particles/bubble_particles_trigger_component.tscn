@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1vcr3cuan4v3"]
+
+[ext_resource type="PackedScene" uid="uid://de38efphmr23n" path="res://src/components/particles/particles_trigger_component.tscn" id="1_6k6ie"]
+[ext_resource type="Script" path="res://src/resources/bubble/particles/bubble_particles_trigger_component.gd" id="2_qu6br"]
+
+[node name="BubbleParticlesTriggerComponent" instance=ExtResource("1_6k6ie")]
+script = ExtResource("2_qu6br")

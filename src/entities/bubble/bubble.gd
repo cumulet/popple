@@ -19,6 +19,7 @@ const size_bubble_dictionary: = {
 @onready var mesh_bubble: MeshInstance3D = $MeshBubble
 var screenSize = DisplayServer.window_get_size()
 var target_scale: Vector3
+var _color: Color
 
 var tween_scale: Tween
 var tween_hover: Tween
@@ -31,9 +32,10 @@ func _ready() -> void:
 	screen_ratio = screenSize.x/screenSize.y
 	scale = Vector3(0.05, 0.05, 0.05)
 	target_scale = _randomize_scale()
+	_color = _randomize_color()
 	var matInstance = mesh_bubble.get_active_material(0).duplicate()
 	mesh_bubble.set_surface_override_material(0,matInstance)
-	Utils.set_custom_albedo_in_mesh(mesh_bubble, _randomize_color())
+	Utils.set_custom_albedo_in_mesh(mesh_bubble, _color)
 	appear()
 
 func _input(event: InputEvent) -> void:

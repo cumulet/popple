@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wrw715mu8cs1"]
+[gd_scene load_steps=16 format=3 uid="uid://wrw715mu8cs1"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/bubble.gd" id="1_6jh01"]
 [ext_resource type="SphereMesh" uid="uid://dmjak73qmuvpw" path="res://src/resources/bubble/mesh/bubble.tres" id="2_v3clf"]
@@ -9,8 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cevf2eiiupdqg" path="res://assets/sfx/240566__onikage22__blip-plock-pop-4.wav" id="6_k3tnx"]
 [ext_resource type="AudioStream" uid="uid://cf4rmv28sscqx" path="res://assets/sfx/240566__onikage22__blip-plock-pop-5.wav" id="7_2e6i2"]
 [ext_resource type="AudioStream" uid="uid://cghbgb8vaetip" path="res://assets/sfx/240566__onikage22__blip-plock-pop.wav" id="9_s6adc"]
-[ext_resource type="PackedScene" uid="uid://c1vcr3cuan4v3" path="res://src/resources/bubble/particles/bubble_particles_trigger_component.tscn" id="10_ggtil"]
-[ext_resource type="PackedScene" uid="uid://ceh47hg5wu2st" path="res://src/resources/bubble/particles/pop_particles.tscn" id="11_1phbl"]
+[ext_resource type="PackedScene" uid="uid://de38efphmr23n" path="res://src/components/particles/particles_trigger_component.tscn" id="10_26v2l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gafr6"]
 bounce = 1.0
@@ -63,9 +62,7 @@ bus_name = "SFX"
 audio_stream = SubResource("AudioStreamRandomizer_2h1u5")
 bus_name = "SFX"
 
-[node name="BubbleParticlesTriggerComponent" parent="." node_paths=PackedStringArray("bubble") instance=ExtResource("10_ggtil")]
-bubble = NodePath("..")
-particles_scene = ExtResource("11_1phbl")
+[node name="ParticlesTriggerComponent" parent="." instance=ExtResource("10_26v2l")]
 
 [connection signal="hovered" from="." to="HoverAudioTriggerComponent" method="_on_event_triggered"]
 [connection signal="popped" from="." to="PopAudioTriggerComponent" method="_on_event_triggered"]
