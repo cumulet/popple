@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c8ghpq02up3dc"]
+
+[ext_resource type="Shader" uid="uid://bqd2nkcxew0gk" path="res://src/entities/bubble/bubbleShader.tres" id="1_7luim"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d4y6a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itscm"]
+seamless = true
+noise = SubResource("FastNoiseLite_d4y6a")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7luim")
+shader_parameter/albedo_color = Color(0.886262, 0.886261, 0.886262, 1)
+shader_parameter/height_multiplier = 0.05
+shader_parameter/noise_sample_size = 0.32
+shader_parameter/noise_speed = 0.02
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_itscm")

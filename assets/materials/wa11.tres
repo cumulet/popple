@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bvgslum23ryh8"]
+
+[ext_resource type="Texture2D" uid="uid://xfl3vh0q07gr" path="res://assets/texture/sdb/sdbwaall.png" id="1_k77bm"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_k77bm")
+uv1_scale = Vector3(3.605, 3.605, 3.605)

@@ -30,9 +30,10 @@ func _ready() -> void:
 	screen_ratio = screenSize.x/screenSize.y
 	scale = Vector3(0.05, 0.05, 0.05)
 	target_scale = _randomize_scale()
-	mesh_bubble.get_surface_override_material(0).albedo_color = _randomize_color()
+	var matInstance = mesh_bubble.get_active_material(0).duplicate()
+	mesh_bubble.set_surface_override_material(0,matInstance)
+	Utils.set_custom_albedo_in_mesh(mesh_bubble, _randomize_color())
 	appear()
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):

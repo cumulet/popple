@@ -11,84 +11,82 @@
 [sub_resource type="SystemFont" id="SystemFont_tppci"]
 font_names = PackedStringArray("Doughnut Monster__G")
 font_weight = 875
+subpixel_positioning = 0
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 649.0
-offset_bottom = 625.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.505, 0.505)
+size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4cvxv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.48
-offset_top = -644.421
-offset_right = 261.52
-offset_bottom = -319.421
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Control"]
+layout_mode = 2
+offset_left = -130.0
+offset_top = -334.0
+offset_right = 382.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.505375, 0.505375)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_kaasa")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -369.292
-offset_top = -464.223
-offset_right = 382.708
-offset_bottom = 12.7772
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/Control"]
+layout_mode = 2
+offset_left = -196.0
+offset_top = -214.0
+offset_right = 316.0
+offset_bottom = 111.0
+scale = Vector2(0.722225, 0.722225)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_c2dfw")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.48
-offset_top = 252.609
-offset_right = 261.52
-offset_bottom = 577.609
+[node name="Label" type="Label" parent="CenterContainer/Control"]
+layout_mode = 2
+offset_left = -259.0
+offset_top = 7.0
+offset_right = 485.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_ui4o1")
-texture_pressed = ExtResource("3_36hpl")
-texture_hover = ExtResource("4_wxuve")
-texture_disabled = ExtResource("3_36hpl")
-script = ExtResource("5_wdxyb")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -446.52
-offset_top = -52.3416
-offset_right = 474.48
-offset_bottom = 220.658
-grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(0.646155, 0.646155)
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("SystemFont_tppci")
 theme_override_font_sizes/font_size = 121
 text = "1000000"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/Control"]
+layout_mode = 0
+offset_left = -193.0
+offset_top = 98.0
+offset_right = 319.0
+offset_bottom = 423.0
+scale = Vector2(0.664453, 0.664453)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_ui4o1")
+texture_pressed = ExtResource("3_36hpl")
+texture_hover = ExtResource("4_wxuve")
+texture_disabled = ExtResource("3_36hpl")
+stretch_mode = 3
+script = ExtResource("5_wdxyb")
