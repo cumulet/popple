@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=6 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
 [ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
+[ext_resource type="PackedScene" uid="uid://djja2gjhqmxot" path="res://src/ui/endMenu.tscn" id="4_0te6l"]
 
 [node name="main" type="Node3D"]
 
@@ -18,7 +19,7 @@ size = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
 
 [node name="bubbleSpawner" type="Node3D" parent="." node_paths=PackedStringArray("spawnPosition")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22186, -2.86648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.984027, -2.86648)
 script = ExtResource("1_pxkc1")
 spawnPosition = NodePath("spawnPosition")
 spawnAtStart = true
@@ -29,4 +30,13 @@ amountAtStart = 20
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
 
 [node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -7.04729)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1.88118, -4.46779)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Control" parent="." instance=ExtResource("4_0te6l")]
+visible = false
+
+[connection signal="timeout" from="Timer" to="Control" method="activate"]
