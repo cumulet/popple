@@ -50,10 +50,13 @@ func choose_current_bubble():
 	mesh_current_bubble.scale = Vector3.ONE * current_bubble_size
 
 func choose_next_bubble():
-	var tmp_next_bubble: Bubble = get_tree().get_nodes_in_group("Bubbles").pick_random()
-	var tmp_next_color = Utils.get_custom_albedo_in_mesh(tmp_next_bubble.mesh_bubble)
-	if tmp_next_color != current_bubble_color:
-		next_bubble_size = tmp_next_bubble.target_scale.x
-		mesh_next_bubble.scale = Vector3.ONE * next_bubble_size
-		next_bubble_color = tmp_next_color
-		Utils.set_custom_albedo_in_mesh(mesh_next_bubble, next_bubble_color)
+#	Loop until you don't find a bubble with different color
+	while true:
+		var tmp_next_bubble: Bubble = get_tree().get_nodes_in_group("Bubbles").pick_random()
+		var tmp_next_color = Utils.get_custom_albedo_in_mesh(tmp_next_bubble.mesh_bubble)
+		if tmp_next_color != current_bubble_color:
+			next_bubble_size = tmp_next_bubble.target_scale.x
+			mesh_next_bubble.scale = Vector3.ONE * next_bubble_size
+			next_bubble_color = tmp_next_color
+			Utils.set_custom_albedo_in_mesh(mesh_next_bubble, next_bubble_color)
+			break
