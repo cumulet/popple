@@ -31,10 +31,10 @@ amountAtStart = 20
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
 
 [node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1.88118, -4.46779)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.88118, -4.46779)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 40.0
 autostart = true
 
 [node name="Control" parent="." instance=ExtResource("4_0te6l")]
