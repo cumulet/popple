@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cghbgb8vaetip" path="res://assets/sfx/240566__onikage22__blip-plock-pop.wav" id="9_s6adc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gafr6"]
-bounce = 0.9
+bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b2tya"]
 radius = 0.0501778

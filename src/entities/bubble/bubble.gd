@@ -62,7 +62,6 @@ func _randomize_color() -> Color:
 func _randomize_scale() -> Vector3:
 	return Utils.get_random_value_in_dictionary(size_bubble_dictionary)
 
-
 func _on_trigger_area_3d_mouse_entered() -> void:
 	is_mouse_on_area = true
 	hover(0.1)

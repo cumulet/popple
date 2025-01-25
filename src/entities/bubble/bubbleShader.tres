@@ -3,11 +3,14 @@
 [resource]
 code = "shader_type spatial;
 
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D noiseTexture;
+uniform sampler2D normaTexture;
 uniform vec4 albedo_color :source_color;
 uniform float height_multiplier = 1;
 uniform float noise_sample_size = 1;
 uniform float noise_speed = 0.01;
+uniform float refraction_strength = 0.01;
 
 varying float height;
 
@@ -28,10 +31,18 @@ void vertex() {
 }
 
 void fragment() {
-	ROUGHNESS = mix(0.05, 0.1, 1.0 - height);
+	
+	
+	vec2 offset = SCREEN_UV;
+	float xNorm = NORMAL.x;
+	float yNorm = NORMAL.y;
+	offset.x += NORMAL.z * xNorm * refraction_strength * 0.01;
+	offset.y += NORMAL.z * yNorm * refraction_strength * -0.01;
+
+	ROUGHNESS = mix(0.1, 0.5, 1.0 - height);
 	SPECULAR = height;
 	ALPHA = fresnel(NORMAL, INV_VIEW_MATRIX);
-	ALBEDO = albedo_color.rgb;
+	ALBEDO = texture(SCREEN_TEXTURE, offset).xyz*0.5 + albedo_color.rgb;
 }
 
 "

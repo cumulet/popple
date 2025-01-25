@@ -33,6 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.984027, -2.86648)
 amountAtStart = 20
 
+[node name="spawnPosition2" type="Node3D" parent="bubbleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145769, 0.262236)
+
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
 
 [node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]

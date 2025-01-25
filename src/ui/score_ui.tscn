@@ -26,6 +26,33 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 
+[node name="Points" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 31.0
+offset_top = -92.0
+offset_right = 323.0
+offset_bottom = -61.0
+scale = Vector2(2.28043, 2.28043)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_font_sizes/font_size = 30
+text = "0"
+vertical_alignment = 1
+
+[node name="Multiplier" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 23.0
+offset_top = -174.0
+offset_right = 315.0
+offset_bottom = -143.0
+rotation = 0.30433
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_font_sizes/font_size = 30
+text = "X1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 4
@@ -38,28 +65,13 @@ offset_bottom = 27.0
 grow_vertical = 2
 scale = Vector2(0.562759, 0.562759)
 
-[node name="Points" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
-theme_override_font_sizes/font_size = 30
-text = "points: 0"
-vertical_alignment = 1
-
 [node name="Combo" type="Label" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "combo: 0"
-vertical_alignment = 1
-
-[node name="Multiplier" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
-theme_override_font_sizes/font_size = 30
-text = "multiplier: 1"
 vertical_alignment = 1
 
 [node name="Control2" type="Control" parent="."]
@@ -69,6 +81,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -79,10 +93,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -148.0
-offset_top = -153.0
-offset_right = 364.0
-offset_bottom = 359.0
+offset_left = -149.0
+offset_top = -141.0
+offset_right = 363.0
+offset_bottom = 371.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.162449, 0.162449)
@@ -95,10 +109,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -41.0
-offset_right = 362.0
-offset_bottom = 471.0
+offset_left = -151.0
+offset_top = -40.0
+offset_right = 361.0
+offset_bottom = 472.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.162449, 0.162449)
