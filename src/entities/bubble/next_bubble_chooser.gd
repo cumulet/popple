@@ -2,12 +2,6 @@ extends Node3D
 
 @export var bubble_spawner: BubbleSpawner
 
-#var current_bubble: Bubble:
-	#set(new_value):
-		#if is_instance_valid(new_value):
-			#current_bubble = new_value
-			#Utils.set_albedo_in_mesh(mesh_current_bubble, Utils.get_albedo_in_mesh(current_bubble.mesh_bubble))
-
 var current_bubble_color: Color:
 	set(new_value):
 		current_bubble_color = new_value
@@ -17,12 +11,6 @@ var next_bubble_color: Color:
 	set(new_value):
 		next_bubble_color = new_value
 		Utils.set_albedo_in_mesh(mesh_next_bubble, next_bubble_color)
-
-#var next_bubble: Bubble:
-	#set(new_value):
-		#if is_instance_valid(new_value):
-			#next_bubble = new_value
-			#Utils.set_albedo_in_mesh(mesh_next_bubble, Utils.get_albedo_in_mesh(next_bubble.mesh_bubble))
 
 
 @onready var mesh_current_bubble: MeshInstance3D = $CurrentBubble/MeshCurrentBubble
@@ -43,6 +31,9 @@ func _on_bubble_popped(_bubble: Bubble):
 	if popped_bubble_color == current_bubble_color:
 		print("Good job")
 		current_bubble_color = next_bubble_color
+		ScoreManager.current_hit += 1
+	else:
+		ScoreManager.current_hit = 0
 	_bubble.remove_from_group("Bubbles")
 	_bubble.queue_free()
 	choose_next_bubble_color()
