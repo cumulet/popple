@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Utils="*res://src/common/Utils.gd"
-ScoreManager="*res://src/common/ScoreManager.gd"
+Utils="*res://src/common/utils.gd"
+ScoreManager="*res://src/common/score_manager.gd"
 
 [display]
 
@@ -27,3 +27,11 @@ window/size/viewport_width=648
 [global_group]
 
 Bubbles=""
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(325, 17),"global_position":Vector2(334, 63),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}

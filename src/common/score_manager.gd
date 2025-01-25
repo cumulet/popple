@@ -2,7 +2,7 @@ extends Node
 
 signal score_updated(_new_score)
 
-var current_hit:
+var current_hit: int = 0:
 	set(new_value):
 		if new_value == 2:
 			multiplier += 1

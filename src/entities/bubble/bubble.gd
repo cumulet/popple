@@ -24,6 +24,8 @@ var tween_hover: Tween
 var camera_3d : Camera3D
 var screen_ratio: float
 
+var is_mouse_on_area: bool = false
+
 func _ready() -> void:
 	screen_ratio = screenSize.x/screenSize.y
 	scale = Vector3(0.05, 0.05, 0.05)
@@ -32,6 +34,10 @@ func _ready() -> void:
 	appear()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		if is_mouse_on_area:
+			popped.emit()
 
 func appear():
 	if tween_scale != null:
@@ -56,9 +62,9 @@ func _randomize_scale() -> Vector3:
 
 
 func _on_trigger_area_3d_mouse_entered() -> void:
+	is_mouse_on_area = true
 	hover(0.1)
-	popped.emit()
-	
 
 func _on_trigger_area_3d_mouse_exited() -> void:
+	is_mouse_on_area = false
 	hover(-0.1)
