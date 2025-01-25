@@ -1,6 +1,8 @@
 class_name Bubble
 extends RigidBody3D
 
+signal popped
+
 const color_bubble_dictionary: = {
 	"Yellow": Color.YELLOW,
 	"Red": Color.RED,
@@ -59,6 +61,8 @@ func _randomize_scale() -> Vector3:
 
 func _on_trigger_area_3d_mouse_entered() -> void:
 	hover(0.1)
+	popped.emit()
+	
 
 func _on_trigger_area_3d_mouse_exited() -> void:
 	hover(-0.1)

@@ -24,6 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22186, -2.86648)
 script = ExtResource("1_pxkc1")
 spawnPosition = NodePath("spawnPosition")
 spawnAtStart = true
-amountAtStart = 1
+amountAtStart = 20
 
 [node name="spawnPosition" type="Node3D" parent="bubbleSpawner"]
