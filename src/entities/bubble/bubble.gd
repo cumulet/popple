@@ -52,7 +52,7 @@ func hover(_additional_scale_factor: float = 0.0):
 	tween_hover = create_tween()
 	var additional_scale = Vector3(_additional_scale_factor, _additional_scale_factor, _additional_scale_factor)
 	tween_hover.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween_hover.tween_property(mesh_bubble, "scale", mesh_bubble.scale + additional_scale, 0.3)
+	tween_hover.tween_property(mesh_bubble, "scale", target_scale + additional_scale, 0.3)
 
 func _randomize_color() -> Color:
 	return Utils.get_random_value_in_dictionary(color_bubble_dictionary)
@@ -67,4 +67,4 @@ func _on_trigger_area_3d_mouse_entered() -> void:
 
 func _on_trigger_area_3d_mouse_exited() -> void:
 	is_mouse_on_area = false
-	hover(-0.1)
+	hover(0.0)
