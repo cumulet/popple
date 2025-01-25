@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkmgnco2558xt"]
+
+[ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
+[ext_resource type="Script" path="res://src/scenes/collision_system.gd" id="2_bp4ll"]
+
+[sub_resource type="Environment" id="Environment_5q0ea"]
+background_mode = 1
+background_color = Color(0.564122, 0.795389, 0.915492, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iukne"]
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5q0ea")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01131)
+projection = 1
+size = 5.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
+
+[node name="bubbleSpawner" type="Node3D" parent="." node_paths=PackedStringArray("spawnPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22186, -2.86648)
+script = ExtResource("1_pxkc1")
+spawnPosition = NodePath("spawnPosition")
+spawnAtStart = true
+amountAtStart = 20
+
+[node name="spawnPosition" type="Node3D" parent="bubbleSpawner"]
+
+[node name="collisionSystem" type="Node3D" parent="." node_paths=PackedStringArray("upCollisionShape")]
+script = ExtResource("2_bp4ll")
+upCollisionShape = NodePath("StaticBody3D/CollisionShape3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="collisionSystem"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collisionSystem/StaticBody3D"]
+shape = SubResource("BoxShape3D_iukne")

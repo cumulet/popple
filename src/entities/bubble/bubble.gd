@@ -31,11 +31,7 @@ func _ready() -> void:
 	mesh_bubble.get_surface_override_material(0).albedo_color = _randomize_color()
 	appear()
 
-func _process(delta: float) -> void:
-	print(global_position.x, camera_3d.size)
-	if global_position.x > camera_3d.size-.5 || global_position.x < -camera_3d.size+.5:
-		print("out")
-		linear_velocity * -.9
+
 
 func appear():
 	if tween_scale != null:
