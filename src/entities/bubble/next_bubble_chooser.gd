@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var bubble_spawner: BubbleSpawner
 
 var current_bubble: Bubble:
 	set(new_value):
@@ -32,6 +33,8 @@ func _on_bubble_popped(_bubble: Bubble):
 	else:
 		print("Bad job, you didn't pick the same as the current bubble")
 		choose_next_bubble()
+	_bubble.queue_free()
+	update_bubbles_in_scene()
 
 func choose_current_bubble():
 	current_bubble = get_tree().get_nodes_in_group("Bubbles").pick_random()
