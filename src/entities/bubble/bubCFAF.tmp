@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wrw715mu8cs1"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/bubble.gd" id="1_6jh01"]
-[ext_resource type="Material" uid="uid://c8ghpq02up3dc" path="res://assets/materials/bubble.tres" id="2_xgs5k"]
+[ext_resource type="Material" uid="uid://c8ghpq02up3dc" path="res://assets/materials/bubble.tres" id="2_1v4jt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gafr6"]
 bounce = 0.9
@@ -27,7 +27,7 @@ shape = SubResource("SphereShape3D_b2tya")
 [node name="MeshBubble" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("SphereMesh_ltu0v")
-surface_material_override/0 = ExtResource("2_xgs5k")
+surface_material_override/0 = ExtResource("2_1v4jt")
 
 [node name="TriggerArea3D" type="Area3D" parent="MeshBubble"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

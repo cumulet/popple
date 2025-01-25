@@ -1,0 +1,307 @@
+[gd_scene load_steps=15 format=3 uid="uid://bkmgnco2558xt"]
+
+[ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
+[ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
+[ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
+[ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
+[ext_resource type="PackedScene" uid="uid://djja2gjhqmxot" path="res://src/ui/endMenu.tscn" id="4_0te6l"]
+[ext_resource type="Material" uid="uid://bhafav76gagt2" path="res://assets/materials/new_shader_material.tres" id="6_rkb3g"]
+[ext_resource type="ArrayMesh" uid="uid://bmv87bpdpbjb6" path="res://assets/modes/bath.res" id="7_vnfu4"]
+[ext_resource type="Material" uid="uid://fqab1f21pe85" path="res://assets/materials/WATERMAT.tres" id="8_4auxh"]
+[ext_resource type="ArrayMesh" uid="uid://b6opin38asnb2" path="res://assets/modes/robinet.res" id="8_nl5i2"]
+[ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5y614"]
+material = ExtResource("6_rkb3g")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2pce5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qfclc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rfx7n"]
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_ixarf")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01131)
+projection = 1
+size = 5.58
+far = 4062.35
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.643707)
+
+[node name="bubbleSpawner" type="Node3D" parent="." node_paths=PackedStringArray("spawnPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.984027, -2.86648)
+script = ExtResource("1_pxkc1")
+spawnPosition = NodePath("spawnPosition")
+amountAtStart = 1
+
+[node name="spawnPosition" type="Node3D" parent="bubbleSpawner"]
+
+[node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
+
+[node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.446845, 2.19022, -4.46779)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Control" parent="." instance=ExtResource("4_0te6l")]
+visible = false
+
+[node name="bubblesDown" type="Node3D" parent="."]
+transform = Transform3D(0.43429, 0, 0, 0, 0.43429, 0, 0, 0, 0.43429, 0.344998, -0.867256, -0.229269)
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-1.62136, 1.4329, 0, -1.4329, -1.62136, 0, 0, 0, 2.1638, -3.66446, -3.64999, -5.1438)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-1.62136, 1.4329, 0, -1.4329, -1.62136, 0, 0, 0, 2.1638, 0.0636744, -3.07581, -5.1438)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-1.62136, 1.4329, 0, -1.4329, -1.62136, 0, 0, 0, 2.1638, -5.1384, -3.70383, -4.86797)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-1.09226, 0.9653, 0, -0.9653, -1.09226, 0, 0, 0, 1.45768, -3.43747, -2.29791, -5.07538)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(0.356101, -5.26955, 0, 5.26955, 0.356101, 0, 0, 0, 5.28157, -2.1668, -5.48352, -5.0602)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesright/MeshInstance3D20")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-0.282084, 0.249294, 0, -0.249294, -0.282084, 0, 0, 0, 0.376456, 2.01496, -2.37597, -4.69082)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-0.282084, 0.249294, 0, -0.249294, -0.282084, 0, 0, 0, 0.376456, 1.34748, -1.95816, -4.69082)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-0.282084, 0.249294, 0, -0.249294, -0.282084, 0, 0, 0, 0.376456, -1.40367, -2.59219, -4.69082)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(-0.282084, 0.249294, 0, -0.249294, -0.282084, 0, 0, 0, 0.376456, -2.26435, -2.45949, -4.69082)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(0.0619537, -0.916792, 0, 0.916792, 0.0619537, 0, 0, 0, 0.918883, 1.6269, -2.79486, -4.50001)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesright/MeshInstance3D20")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(0.239894, -3.54994, 0, 3.54994, 0.239894, 0, 0, 0, 3.55803, 1.63314, -4.47398, -4.04703)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesright/MeshInstance3D20")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="bubblesDown"]
+transform = Transform3D(0.239894, -3.54994, 0, 3.54994, 0.239894, 0, 0, 0, 3.55803, 4.11328, -3.97264, -4.05206)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesright/MeshInstance3D20")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="bubblesleft" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21956, -0.872644, 0.588878)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.81587, -0.806385, 0, 0.806385, -0.81587, 0, 0, 0, 1.14713, -9.47274, 1.6416, -4.01661)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.81587, -0.806385, 0, 0.806385, -0.81587, 0, 0, 0, 1.14713, -8.73788, -1.32965, -2.79773)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.81587, -0.806385, 0, 0.806385, -0.81587, 0, 0, 0, 1.14713, -9.03578, -0.309832, -4.01661)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.549627, -0.543237, 0, 0.543237, -0.549627, 0, 0, 0, 0.772785, -8.74946, 1.56987, -3.98033)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, -10.2241, 0.783891, -3.43515)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.141944, -0.140294, 0, 0.140294, -0.141944, 0, 0, 0, 0.199576, -8.59586, -1.31693, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.141944, -0.140294, 0, 0.140294, -0.141944, 0, 0, 0, 0.199576, -8.39872, -0.94894, -3.03936)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.141944, -0.140294, 0, 0.140294, -0.141944, 0, 0, 0, 0.199576, -8.83242, 0.483591, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-0.141944, -0.140294, 0, 0.140294, -0.141944, 0, 0, 0, 0.199576, -8.793, 0.943578, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(0.487142, 0, 0, 0, 0.487142, 0, 0, 0, 0.487142, -8.8313, -1.12664, -3.6753)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(1.88627, 0, 0, 0, 1.88627, 0, 0, 0, 1.88627, -9.71923, -1.18996, -3.43515)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="bubblesleft"]
+transform = Transform3D(-7.38538, -4.48897, 0, 4.48897, -7.38538, 0, 0, 0, 2.80713, -14.7587, 0.706905, -4.24421)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="bubblesright" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254473, 1.22954, 1.44438)
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.27835, 1.11284, 0, -1.11284, 0.27835, 0, 0, 0, 1.14713, 2.49264, -3.49306, -4.01661)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.27835, 1.11284, 0, -1.11284, 0.27835, 0, 0, 0, 1.14713, 3.13281, -1.59854, -4.01661)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.187516, 0.749689, 0, -0.749689, 0.187516, 0, 0, 0, 0.772785, 1.91183, -3.05609, -3.98033)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(-2.39269, -1.45432, 0, 1.45432, -2.39269, 0, 0, 0, 2.8, 3.72113, -3.23605, -4.24421)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(-7.38538, -4.48897, 0, 4.48897, -7.38538, 0, 0, 0, 2.80713, 8.37756, -1.14846, -4.24421)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(-7.38538, -4.48897, 0, 4.48897, -7.38538, 0, 0, 0, 2.80713, 8.37756, -1.14846, -4.24421)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.0484272, 0.193612, 0, -0.193612, 0.0484272, 0, 0, 0, 0.199576, 3.27997, -0.509452, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.0484272, 0.193612, 0, -0.193612, 0.0484272, 0, 0, 0, 0.199576, 2.92038, -0.721517, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.0484272, 0.193612, 0, -0.193612, 0.0484272, 0, 0, 0, 0.199576, 2.54693, -2.17092, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(0.0484272, 0.193612, 0, -0.193612, 0.0484272, 0, 0, 0, 0.199576, 2.27432, -2.54352, -3.77646)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../../bubblesleft/MeshInstance3D")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(-0.416278, -0.253021, 0, 0.253021, -0.416278, 0, 0, 0, 0.487142, 3.38233, -0.794343, -3.6753)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="bubblesright"]
+transform = Transform3D(-1.61188, -0.979731, 0, 0.979731, -1.61188, 0, 0, 0, 1.88627, 4.17398, -1.20143, -3.43515)
+mesh = SubResource("SphereMesh_5y614")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_rkb3g")
+
+[node name="bath" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 2.05354, 0, 1, 0, -1, 0, 2.6929e-07, 0, -3.70765, -1.64692)
+mesh = ExtResource("7_vnfu4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bath"]
+transform = Transform3D(0.0115866, -1.12206, 8.62199e-08, 0.44455, 0.029245, -8.84964e-08, 2.76576e-08, 7.1652e-08, 1.38631, 0.549014, 0.872658, -3.50587e-08)
+material_override = ExtResource("8_4auxh")
+mesh = SubResource("PlaneMesh_2pce5")
+
+[node name="robinet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, -3.67144, -1.64692)
+mesh = ExtResource("8_nl5i2")
+
+[node name="water" type="MeshInstance3D" parent="robinet"]
+transform = Transform3D(0.0534928, 0, -5.32907e-15, 0, 0.460649, 0, 5.32907e-15, 0, 0.0534928, 0.66246, 1.51769, -8.68711e-08)
+mesh = SubResource("CylinderMesh_qfclc")
+surface_material_override/0 = ExtResource("8_4auxh")
+
+[node name="wa11" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.72038, 0, 0, 0, 0, -6.01212, 0, 1, 0, 0, -1.3774, -6.97056)
+material_override = ExtResource("10_yodtd")
+mesh = SubResource("PlaneMesh_rfx7n")
+
+[connection signal="timeout" from="Timer" to="Control" method="activate"]

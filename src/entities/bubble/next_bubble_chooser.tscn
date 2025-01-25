@@ -1,31 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw0rrywq33yqg"]
+[gd_scene load_steps=5 format=3 uid="uid://cw0rrywq33yqg"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/next_bubble_chooser.gd" id="1_r10gq"]
+[ext_resource type="Material" uid="uid://c8ghpq02up3dc" path="res://assets/materials/bubble.tres" id="2_os28p"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ruym7"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y804h"]
-resource_local_to_scene = true
-
 [sub_resource type="SphereMesh" id="SphereMesh_ji4eb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g3uf"]
-resource_local_to_scene = true
 
 [node name="NextBubbleChooser" type="Node3D"]
 script = ExtResource("1_r10gq")
 
 [node name="CurrentBubble" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 
 [node name="MeshCurrentBubble" type="MeshInstance3D" parent="CurrentBubble"]
 mesh = SubResource("SphereMesh_ruym7")
-surface_material_override/0 = SubResource("StandardMaterial3D_y804h")
+surface_material_override/0 = ExtResource("2_os28p")
 
 [node name="NextBubble" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548896, -1.26398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.679404, 0)
 
 [node name="MeshNextBubble" type="MeshInstance3D" parent="NextBubble"]
 mesh = SubResource("SphereMesh_ji4eb")
-skeleton = NodePath("../../CurrentBubble")
-surface_material_override/0 = SubResource("StandardMaterial3D_6g3uf")
+surface_material_override/0 = ExtResource("2_os28p")

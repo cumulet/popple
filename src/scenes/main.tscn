@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=14 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
 [ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
 [ext_resource type="PackedScene" uid="uid://djja2gjhqmxot" path="res://src/ui/endMenu.tscn" id="4_0te6l"]
-[ext_resource type="PackedScene" uid="uid://bxwsdd76fxkf0" path="res://src/ui/score_ui.tscn" id="6_cpowa"]
+[ext_resource type="PackedScene" uid="uid://dwkhrnlfo5sui" path="res://src/ui/score_ui.tscn" id="6_cpowa"]
+[ext_resource type="ArrayMesh" uid="uid://bmv87bpdpbjb6" path="res://assets/modes/bath.res" id="7_vnfu4"]
+[ext_resource type="Material" uid="uid://fqab1f21pe85" path="res://assets/materials/WATERMAT.tres" id="8_4auxh"]
+[ext_resource type="ArrayMesh" uid="uid://b6opin38asnb2" path="res://assets/modes/robinet.res" id="8_nl5i2"]
+[ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tvgnu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ihgp5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vgmbw"]
 
 [node name="main" type="Node3D"]
 
@@ -30,16 +40,48 @@ amountAtStart = 20
 
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
 
-[node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.88118, -4.46779)
+[node name="NextBubbleChooser" parent="." node_paths=PackedStringArray("bubble_spawner") instance=ExtResource("2_oawiw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.60171, -1.7333, -2.15389)
+bubble_spawner = NodePath("../bubbleSpawner")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 40.0
 autostart = true
 
+[node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
+
 [node name="Control" parent="." instance=ExtResource("4_0te6l")]
 visible = false
 
-[node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
+[node name="bathroom" type="Node3D" parent="."]
+
+[node name="bath" type="MeshInstance3D" parent="bathroom"]
+transform = Transform3D(-7.19142e-08, 0, 4.51303, 0, 1.64521, 0, -1.64521, 0, -1.97271e-07, 0, -4.99397, -1.47662)
+mesh = ExtResource("7_vnfu4")
+
+[node name="water" type="MeshInstance3D" parent="bathroom/bath"]
+transform = Transform3D(-3.38725e-08, -1, -9.13746e-08, 0.774913, -4.37114e-08, 9.13745e-08, -3.38725e-08, -4.37114e-08, 2.0904, 0, 0.816, 0)
+mesh = SubResource("PlaneMesh_tvgnu")
+surface_material_override/0 = ExtResource("8_4auxh")
+
+[node name="robinet" type="MeshInstance3D" parent="bathroom/bath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.358066, 0, 0, 0)
+mesh = ExtResource("8_nl5i2")
+skeleton = NodePath("../..")
+
+[node name="water" type="MeshInstance3D" parent="bathroom/bath/robinet"]
+transform = Transform3D(0.0660625, 0, -1.55431e-15, 0, 0.799589, 0, 1.55431e-15, 0, 0.0660625, 0.7203, 1.19335, 3.14854e-08)
+mesh = SubResource("CylinderMesh_ihgp5")
+surface_material_override/0 = ExtResource("8_4auxh")
+
+[node name="wa11" type="MeshInstance3D" parent="bathroom"]
+transform = Transform3D(6.27227, 0, 0, 0, -2.7417e-07, -6.27227, 0, 6.27227, -2.7417e-07, 0, 0, -6.71418)
+mesh = SubResource("PlaneMesh_vgmbw")
+surface_material_override/0 = ExtResource("10_yodtd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 
 [connection signal="timeout" from="Timer" to="Control" method="activate"]
+
+[editable path="NextBubbleChooser"]

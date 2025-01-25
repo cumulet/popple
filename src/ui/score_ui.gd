@@ -1,8 +1,8 @@
 extends Control
 
-@onready var points: Label = $VBoxContainer/Points
-@onready var combo: Label = $VBoxContainer/Combo
-@onready var multiplier: Label = $VBoxContainer/Multiplier
+@onready var points: Label = $Control/VBoxContainer/Points
+@onready var combo: Label = $Control/VBoxContainer/Combo
+@onready var multiplier: Label = $Control/VBoxContainer/Multiplier
 
 func _ready() -> void:
 	ScoreManager.score_updated.connect(_on_score_updated)

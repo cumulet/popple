@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxwsdd76fxkf0"]
+[gd_scene load_steps=4 format=3 uid="uid://dwkhrnlfo5sui"]
 
 [ext_resource type="Script" path="res://src/ui/score_ui.gd" id="1_x808s"]
+[ext_resource type="Texture2D" uid="uid://d04lisskt7p15" path="res://assets/texture/UI/bubbleoutline.png" id="2_r6a5p"]
 
 [sub_resource type="SystemFont" id="SystemFont_2i2t8"]
 font_names = PackedStringArray("Doughnut Monster__G")
 font_weight = 875
+font_stretch = 200
 subpixel_positioning = 0
 
 [node name="ScoreUI" type="Control"]
@@ -17,35 +19,87 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_x808s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 461.0
-offset_right = -443.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="Points" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -74.0
+offset_right = 303.0
+offset_bottom = 27.0
+grow_vertical = 2
+scale = Vector2(0.562759, 0.562759)
+
+[node name="Points" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "points: 0"
 vertical_alignment = 1
 
-[node name="Combo" type="Label" parent="VBoxContainer"]
+[node name="Combo" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "combo: 0"
 vertical_alignment = 1
 
-[node name="Multiplier" type="Label" parent="VBoxContainer"]
+[node name="Multiplier" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "multiplier: 1"
 vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -153.0
+offset_right = 364.0
+offset_bottom = 359.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.162449, 0.162449)
+texture = ExtResource("2_r6a5p")
+
+[node name="TextureRect2" type="TextureRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -41.0
+offset_right = 362.0
+offset_bottom = 471.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.162449, 0.162449)
+texture = ExtResource("2_r6a5p")
