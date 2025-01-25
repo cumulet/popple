@@ -24,7 +24,8 @@ ParticlesManager="*res://src/common/particles_manager.gd"
 
 [display]
 
-window/size/viewport_width=648
+window/size/viewport_width=1296
+window/size/viewport_height=1296
 
 [global_group]
 

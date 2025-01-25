@@ -8,27 +8,29 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_xo2df"]
 max_value = 2.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.254237, 1.43092), 0.0, 0.0, 0, 0, Vector2(1, 0.0971272), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.0268211), 0.0, 0.0, 0, 0, Vector2(0.0577617, 1.48888), 0.0, 0.0, 0, 0, Vector2(1, 0.0971272), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="PopParticles" type="CPUParticles3D"]
 emitting = false
-amount = 6
-lifetime = 0.7
+amount = 10
+lifetime = 0.4
 one_shot = true
 explosiveness = 0.8
 randomness = 0.3
 mesh = ExtResource("1_0tcrq")
+emission_shape = 1
+emission_sphere_radius = 0.1
 direction = Vector3(1, 1, 1)
 spread = 180.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 2.0
-initial_velocity_max = 3.0
+initial_velocity_max = 5.0
 damping_min = 4.0
 damping_max = 7.0
 damping_curve = SubResource("Curve_1f1s5")
 angle_min = 180.0
 angle_max = 270.0
-scale_amount_min = 0.25
-scale_amount_max = 0.5
+scale_amount_min = 0.05
+scale_amount_max = 0.1
 scale_amount_curve = SubResource("Curve_xo2df")
