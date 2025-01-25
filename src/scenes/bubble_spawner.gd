@@ -1,6 +1,8 @@
 class_name BubbleSpawner
 extends Node3D
 
+signal started_spawn
+
 const BUBBLE = preload("res://src/entities/bubble/bubble.tscn")
 @onready var camera_3d: Camera3D = $"../Camera3D"
 
@@ -14,6 +16,7 @@ func _ready() -> void:
 		spawn_bubbles(amountAtStart)
 
 func spawn_bubbles(bubble_amount: int):
+	started_spawn.emit()
 	for n in bubble_amount:
 		spawn_bubble(spawnPosition.global_position)
 

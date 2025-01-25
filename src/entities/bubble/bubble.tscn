@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://wrw715mu8cs1"]
+[gd_scene load_steps=15 format=3 uid="uid://wrw715mu8cs1"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/bubble.gd" id="1_6jh01"]
 [ext_resource type="Material" uid="uid://c8ghpq02up3dc" path="res://assets/materials/bubble.tres" id="2_xgs5k"]
+[ext_resource type="PackedScene" uid="uid://dytj1vn0x63o6" path="res://src/components/audio/AudioTriggerComponent.tscn" id="3_7oxpa"]
+[ext_resource type="AudioStream" uid="uid://b7m73lekg8f70" path="res://assets/sfx/240566__onikage22__blip-plock-pop-2.wav" id="4_e3qi7"]
+[ext_resource type="AudioStream" uid="uid://bgmn7aykytj2c" path="res://assets/sfx/240566__onikage22__blip-plock-pop-3.wav" id="5_qiggk"]
+[ext_resource type="AudioStream" uid="uid://cevf2eiiupdqg" path="res://assets/sfx/240566__onikage22__blip-plock-pop-4.wav" id="6_k3tnx"]
+[ext_resource type="AudioStream" uid="uid://cf4rmv28sscqx" path="res://assets/sfx/240566__onikage22__blip-plock-pop-5.wav" id="7_2e6i2"]
+[ext_resource type="AudioStream" uid="uid://cghbgb8vaetip" path="res://assets/sfx/240566__onikage22__blip-plock-pop.wav" id="9_s6adc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gafr6"]
 bounce = 0.9
@@ -13,6 +19,18 @@ radius = 0.0501778
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1a62h"]
 radius = 0.536595
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_to1e1"]
+streams_count = 4
+stream_0/stream = ExtResource("4_e3qi7")
+stream_1/stream = ExtResource("5_qiggk")
+stream_2/stream = ExtResource("7_2e6i2")
+stream_3/stream = ExtResource("9_s6adc")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2h1u5"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_k3tnx")
 
 [node name="Bubble" type="RigidBody3D" groups=["Bubbles"]]
 mass = 0.001
@@ -36,5 +54,15 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_1a62h")
 
+[node name="PopAudioTriggerComponent" parent="." instance=ExtResource("3_7oxpa")]
+audio_stream = SubResource("AudioStreamRandomizer_to1e1")
+bus_name = "SFX"
+
+[node name="HoverAudioTriggerComponent" parent="." instance=ExtResource("3_7oxpa")]
+audio_stream = SubResource("AudioStreamRandomizer_2h1u5")
+bus_name = "SFX"
+
+[connection signal="hovered" from="." to="HoverAudioTriggerComponent" method="_on_event_triggered"]
+[connection signal="popped" from="." to="PopAudioTriggerComponent" method="_on_event_triggered"]
 [connection signal="mouse_entered" from="MeshBubble/TriggerArea3D" to="." method="_on_trigger_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="MeshBubble/TriggerArea3D" to="." method="_on_trigger_area_3d_mouse_exited"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dytj1vn0x63o6"]
+
+[ext_resource type="Script" path="res://src/components/audio/audio_trigger_component.gd" id="1_ua3hb"]
+
+[node name="AudioTriggerComponent" type="Node"]
+script = ExtResource("1_ua3hb")

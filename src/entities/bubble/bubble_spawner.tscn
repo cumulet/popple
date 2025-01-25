@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwy6hwdm3it3l"]
+[gd_scene load_steps=4 format=3 uid="uid://bwy6hwdm3it3l"]
 
 [ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_8o031"]
+[ext_resource type="PackedScene" uid="uid://dytj1vn0x63o6" path="res://src/components/audio/AudioTriggerComponent.tscn" id="2_2p0l8"]
+[ext_resource type="AudioStream" uid="uid://cql1vturp8f62" path="res://assets/sfx/spawn_bubbles.wav" id="3_7fcwv"]
 
 [node name="bubbleSpawner" type="Node3D" node_paths=PackedStringArray("spawnPosition")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22186, -2.86648)
@@ -10,3 +12,9 @@ spawnAtStart = true
 amountAtStart = 1
 
 [node name="spawnPosition" type="Node3D" parent="."]
+
+[node name="SpawnAudioTriggerComponent" parent="." instance=ExtResource("2_2p0l8")]
+audio_stream = ExtResource("3_7fcwv")
+bus_name = "SFX"
+
+[connection signal="started_spawn" from="." to="SpawnAudioTriggerComponent" method="_on_event_triggered"]

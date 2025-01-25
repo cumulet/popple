@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ScoreManager="*res://src/common/score_manager.gd"
 Utils="*res://src/common/utils.gd"
+AudioManager="*res://src/common/audio_manager.gd"
 
 [display]
 
