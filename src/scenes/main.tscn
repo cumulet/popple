@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=7 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="Script" path="res://src/scenes/bubble_spawner.gd" id="1_pxkc1"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
 [ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
 [ext_resource type="PackedScene" uid="uid://djja2gjhqmxot" path="res://src/ui/endMenu.tscn" id="4_0te6l"]
+[ext_resource type="PackedScene" uid="uid://bxwsdd76fxkf0" path="res://src/ui/score_ui.tscn" id="6_cpowa"]
 
 [node name="main" type="Node3D"]
 
@@ -38,5 +39,7 @@ autostart = true
 
 [node name="Control" parent="." instance=ExtResource("4_0te6l")]
 visible = false
+
+[node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
 
 [connection signal="timeout" from="Timer" to="Control" method="activate"]
