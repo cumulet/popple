@@ -26,6 +26,7 @@ func update_bubbles_in_scene():
 			bubble.popped.connect(_on_bubble_popped.bind(bubble))
 
 func _on_bubble_popped(_bubble: Bubble):
+	_bubble.remove_from_group("Bubbles")
 	var popped_bubble_color: Color = Utils.get_custom_albedo_in_mesh(_bubble.mesh_bubble)
 	var popped_bubble_mesh_size: float = _bubble.target_scale.x
 	if popped_bubble_color == current_bubble_color and popped_bubble_mesh_size == current_bubble_size:
@@ -37,7 +38,6 @@ func _on_bubble_popped(_bubble: Bubble):
 		ScoreManager.current_hit += 1
 	else:
 		ScoreManager.current_hit = 0
-	_bubble.remove_from_group("Bubbles")
 	_bubble.queue_free()
 	choose_next_bubble()
 	update_bubbles_in_scene()
@@ -47,12 +47,13 @@ func choose_current_bubble():
 	current_bubble_color = Utils.get_custom_albedo_in_mesh(tmp_bubble.mesh_bubble)
 	Utils.set_custom_albedo_in_mesh(mesh_current_bubble, current_bubble_color)
 	current_bubble_size = tmp_bubble.target_scale.x
+	mesh_current_bubble.scale = Vector3.ONE * current_bubble_size
 
 func choose_next_bubble():
-		var tmp_next_bubble: Bubble = get_tree().get_nodes_in_group("Bubbles").pick_random()
-		var tmp_next_color = Utils.get_custom_albedo_in_mesh(tmp_next_bubble.mesh_bubble)
-		if tmp_next_color != current_bubble_color:
-			next_bubble_size = tmp_next_bubble.target_scale.x
-			mesh_next_bubble.scale = Vector3.ONE * next_bubble_size
-			next_bubble_color = tmp_next_color
-			Utils.set_custom_albedo_in_mesh(mesh_next_bubble, next_bubble_color)
+	var tmp_next_bubble: Bubble = get_tree().get_nodes_in_group("Bubbles").pick_random()
+	var tmp_next_color = Utils.get_custom_albedo_in_mesh(tmp_next_bubble.mesh_bubble)
+	if tmp_next_color != current_bubble_color:
+		next_bubble_size = tmp_next_bubble.target_scale.x
+		mesh_next_bubble.scale = Vector3.ONE * next_bubble_size
+		next_bubble_color = tmp_next_color
+		Utils.set_custom_albedo_in_mesh(mesh_next_bubble, next_bubble_color)

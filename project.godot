@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Utils="*res://src/common/utils.gd"
 ScoreManager="*res://src/common/score_manager.gd"
+Utils="*res://src/common/utils.gd"
 
 [display]
 
