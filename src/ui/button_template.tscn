@@ -1,13 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4vf3jbmcmkdr"]
+[gd_scene load_steps=10 format=3 uid="uid://c4vf3jbmcmkdr"]
 
 [ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="1_sxll1"]
+[ext_resource type="PackedScene" uid="uid://dytj1vn0x63o6" path="res://src/components/audio/AudioTriggerComponent.tscn" id="2_t0nk3"]
+[ext_resource type="AudioStream" uid="uid://cevf2eiiupdqg" path="res://assets/sfx/240566__onikage22__blip-plock-pop-4.wav" id="3_1ukal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hcd18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4rlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vqvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cccvm"]
 
 [sub_resource type="Theme" id="Theme_y36np"]
+Button/colors/font_color = Color(0.57, 0.57, 0.57, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_outline_color = Color(0.0784314, 0.101961, 0.247059, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_sxll1")
+Button/styles/focus = SubResource("StyleBoxEmpty_hcd18")
+Button/styles/hover = SubResource("StyleBoxEmpty_o4rlt")
+Button/styles/pressed = SubResource("StyleBoxEmpty_2vqvb")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_cccvm")
+Label/colors/font_outline_color = Color(0.0784314, 0.101961, 0.247059, 1)
+Label/colors/font_shadow_color = Color(0.077975, 0.101887, 0.24768, 1)
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 5
 Label/fonts/font = ExtResource("1_sxll1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7pchc"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_1ukal")
 
 [node name="Button" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 theme = SubResource("Theme_y36np")
 text = "ciao"
+flat = true
+
+[node name="AudioTriggerComponent" parent="." instance=ExtResource("2_t0nk3")]
+audio_stream = SubResource("AudioStreamRandomizer_7pchc")
+bus_name = "SFX"
+
+[connection signal="focus_entered" from="." to="AudioTriggerComponent" method="_on_event_triggered"]

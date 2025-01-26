@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0e1y18636tfy"]
+[gd_scene load_steps=4 format=3 uid="uid://c0e1y18636tfy"]
 
 [ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_hmhgn"]
 [ext_resource type="PackedScene" uid="uid://c4vf3jbmcmkdr" path="res://src/ui/button_template.tscn" id="1_t3vr1"]
+[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="3_3fplk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,7 +21,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -266.0
-offset_top = -261.0
+offset_top = -504.0
 offset_right = 266.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -28,6 +29,7 @@ alignment = 1
 
 [node name="StartButton" parent="Buttons" instance=ExtResource("1_t3vr1")]
 layout_mode = 2
+text = "pop"
 
 [node name="QuitButton" parent="Buttons" instance=ExtResource("1_t3vr1")]
 layout_mode = 2
@@ -42,7 +44,13 @@ offset_left = -229.0
 offset_right = 229.0
 offset_bottom = 210.0
 grow_horizontal = 2
-text = "Poppie"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_3fplk")
+theme_override_font_sizes/font_size = 100
+text = "poppie"
 horizontal_alignment = 1
 vertical_alignment = 1
 

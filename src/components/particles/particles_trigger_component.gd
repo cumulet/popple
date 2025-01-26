@@ -2,7 +2,7 @@ extends Node
 class_name ParticlesTriggerComponent
 
 @export var particles_scene: PackedScene
-@export var target_position: Node3D
+@export var target_position: Node
 
 var particles: CPUParticles3D
 
