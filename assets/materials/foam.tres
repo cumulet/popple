@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bduptqvkmlva0"]
+
+[ext_resource type="Shader" uid="uid://dsqdj0hthnqep" path="res://assets/foaml.tres" id="1_6ymfw"]
+[ext_resource type="Texture2D" uid="uid://mn8uyq31yw3x" path="res://assets/texture/foam/everytexture.com-stock-misc-texture-00029-diffuse-1024.jpg" id="2_c6kr3"]
+[ext_resource type="Texture2D" uid="uid://nc7befr8x2tm" path="res://assets/texture/foam/everytexture.com-stock-misc-texture-00029-normal-1024.jpg" id="3_d1g35"]
+[ext_resource type="Texture2D" uid="uid://c3h86f0hv1t2w" path="res://assets/texture/foam/everytexture.com-stock-misc-texture-00029-bump-1024.jpg" id="4_a1cmn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6ymfw")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/intensitymovement = 0.1
+shader_parameter/texture_albedo = ExtResource("2_c6kr3")
+shader_parameter/texture_normal = ExtResource("3_d1g35")
+shader_parameter/texture_rough = ExtResource("4_a1cmn")
+shader_parameter/texture_alpha = ExtResource("2_c6kr3")
