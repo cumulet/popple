@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxwpjhnhkuup8"]
+
+[ext_resource type="Script" path="res://src/entities/foam.gd" id="1_6ic1f"]
+
+[node name="Foam" type="Node3D" node_paths=PackedStringArray("target_position")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.205, -1.65)
+script = ExtResource("1_6ic1f")
+target_position = NodePath("TargetPosition")
+
+[node name="TargetPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.39, 0)

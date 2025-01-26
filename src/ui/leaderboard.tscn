@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://j4qp8e87c3c1"]
+[gd_scene load_steps=3 format=3 uid="uid://b1brahbdprwt3"]
 
 [ext_resource type="Script" path="res://src/ui/leaderboard.gd" id="1_1v7q6"]
-[ext_resource type="SystemFont" path="res://src/ui/font.tres" id="2_nx68e"]
+[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="2_nx68e"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
