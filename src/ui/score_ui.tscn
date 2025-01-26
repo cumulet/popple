@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwkhrnlfo5sui"]
 
 [ext_resource type="Script" path="res://src/ui/score_ui.gd" id="1_x808s"]
-[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="2_f5xel"]
+[ext_resource type="SystemFont" path="res://src/ui/font.tres" id="2_f5xel"]
 
 [sub_resource type="Animation" id="Animation_34yq8"]
 length = 0.001

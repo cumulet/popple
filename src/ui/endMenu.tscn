@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://djja2gjhqmxot"]
+[gd_scene load_steps=8 format=3 uid="uid://djja2gjhqmxot"]
 
 [ext_resource type="Script" path="res://src/ui/end_menu.gd" id="1_4cvxv"]
-[ext_resource type="Texture2D" uid="uid://clr1aktqvbk3x" path="res://assets/texture/UI/restart_menu.png" id="1_kaasa"]
-[ext_resource type="Texture2D" uid="uid://dcw2x40ykqbhv" path="res://assets/texture/UI/button_restart0.png" id="2_ui4o1"]
+[ext_resource type="Texture2D" uid="uid://qfugfyj0ment" path="res://assets/texture/UI/timesup.png" id="2_l1lu8"]
 [ext_resource type="Texture2D" uid="uid://b7sl1hi85q44y" path="res://assets/texture/UI/button_restart3.png" id="3_36hpl"]
 [ext_resource type="Texture2D" uid="uid://bx8x50515c1lf" path="res://assets/texture/UI/button_restart1.png" id="4_wxuve"]
 [ext_resource type="Script" path="res://src/scenes/texture_button.gd" id="5_wdxyb"]
-[ext_resource type="PackedScene" uid="uid://b1brahbdprwt3" path="res://src/ui/leaderboard.tscn" id="7_o4rj3"]
+[ext_resource type="PackedScene" uid="uid://j4qp8e87c3c1" path="res://src/ui/leaderboard.tscn" id="7_o4rj3"]
 
 [sub_resource type="SystemFont" id="SystemFont_tppci"]
 font_names = PackedStringArray("Doughnut Monster__G")
@@ -37,27 +36,28 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/Control"]
 layout_mode = 2
-offset_left = -130.0
-offset_top = -334.0
-offset_right = 382.0
-offset_bottom = -9.0
+offset_left = -252.0
+offset_top = -371.0
+offset_right = 632.0
+offset_bottom = 659.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.505375, 0.505375)
+scale = Vector2(0.543741, 0.543741)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_kaasa")
+texture = ExtResource("2_l1lu8")
 
 [node name="Label" type="Label" parent="CenterContainer/Control"]
 layout_mode = 2
-offset_left = -259.0
-offset_top = 7.0
-offset_right = 485.0
-offset_bottom = 129.0
+offset_left = -144.0
+offset_top = -172.0
+offset_right = 600.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.646155, 0.646155)
+scale = Vector2(0.349323, 0.441459)
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_tppci")
 theme_override_font_sizes/font_size = 121
 text = "1000000"
@@ -66,19 +66,24 @@ vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="CenterContainer/Control"]
 layout_mode = 0
-offset_left = -193.0
-offset_top = 98.0
-offset_right = 319.0
-offset_bottom = 423.0
+offset_left = -190.0
+offset_top = 192.0
+offset_right = 370.0
+offset_bottom = 531.0
 scale = Vector2(0.664453, 0.664453)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("2_ui4o1")
+texture_normal = ExtResource("4_wxuve")
 texture_pressed = ExtResource("3_36hpl")
-texture_hover = ExtResource("4_wxuve")
+texture_hover = ExtResource("3_36hpl")
 texture_disabled = ExtResource("3_36hpl")
 stretch_mode = 3
 script = ExtResource("5_wdxyb")
 
 [node name="Leaderboard" parent="." instance=ExtResource("7_o4rj3")]
 layout_mode = 1
+offset_left = 229.0
+offset_top = 402.0
+offset_right = 229.0
+offset_bottom = 402.0
+scale = Vector2(0.368396, 0.368396)
