@@ -7,6 +7,7 @@ extends Control
 var localMul : int
 func _ready() -> void:
 	ScoreManager.score_updated.connect(_on_score_updated)
+	ScoreManager.start_game.connect(_on_start_game)
 
 func _on_score_updated(_new_score):
 	if visible == false:
@@ -22,3 +23,7 @@ func _on_score_updated(_new_score):
 	else:
 		multiplier.visible = false
 		localMul = 1
+
+
+func _on_start_game():
+	visible = true

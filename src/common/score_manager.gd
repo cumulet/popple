@@ -1,5 +1,7 @@
 extends Node
 
+
+signal start_game
 signal score_updated(_new_score)
 signal leaderboard_score_updated(_new_current_scores: Array[float])
 
@@ -27,11 +29,13 @@ func _ready() -> void:
 		print("score: " + str(points) + 
 		"\nmultiplier " + str(multiplier) + 
 		"\ncurrent_hit " + str(current_hit)) )
-
-
+	start_game.connect(_on_start_game)
 
 func add_score(_new_score: float):
 	current_scores.append(_new_score)
 	current_scores.sort()
 	current_scores.reverse()
 	leaderboard_score_updated.emit(current_scores)
+
+func _on_start_game():
+	points = 0.0

@@ -15,6 +15,7 @@ const BUBBLE = preload("res://src/entities/bubble/bubble.tscn")
 func _ready() -> void:
 	if spawnAtStart:
 		spawn_bubbles(amountAtStart)
+	ScoreManager.start_game.connect(_on_start_game)
 
 func spawn_bubbles(bubble_amount: int):
 	for n in bubble_amount:
@@ -35,3 +36,9 @@ func spawn_bubble(_global_position: Vector3):
 	b.camera_3d= camera_3d
 	b.global_position = _global_position
 	b.apply_force(Vector3(randf_range(-.1,.1),randf_range(.005,.1),0))
+
+
+func _on_start_game():
+	for bubble in get_tree().get_nodes_in_group("Bubbles"):
+		bubble.queue_free()
+	spawn_bubbles(amountAtStart)
