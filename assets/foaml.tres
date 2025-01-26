@@ -18,12 +18,12 @@ void vertex() {
 
 void fragment() {
 	vec2 moving_uv = UV + TIME*0.005;
-	vec4 albedo_tex = texture(texture_albedo, moving_uv);
+	vec4 albedo_tex = texture(texture_albedo, moving_uv*0.15);
 	vec4 normal_tex = texture(texture_normal, moving_uv);
 	float rough_tex = texture(texture_rough, moving_uv).r;
 	float alpha_tex = texture(texture_alpha, moving_uv).r;
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	ALPHA = 1.0;
+	EMISSION = albedo.rgb * albedo_tex.rgb;
+	ALPHA=rough_tex;
 }
 
 //void light() {

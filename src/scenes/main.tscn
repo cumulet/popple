@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=20 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
 [ext_resource type="Texture2D" uid="uid://dqen5wxcmlslm" path="res://assets/texture/UI/target bg.png" id="11_2axpb"]
 [ext_resource type="PackedScene" uid="uid://c0e1y18636tfy" path="res://src/ui/main_menu.tscn" id="11_k8x3r"]
+[ext_resource type="Material" uid="uid://qkbstddqvd3d" path="res://assets/materials/foam.tres" id="14_0y557"]
 [ext_resource type="PackedScene" uid="uid://cxwpjhnhkuup8" path="res://src/entities/foam.tscn" id="14_3cxwx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tvgnu"]
@@ -94,18 +95,106 @@ texture = ExtResource("11_2axpb")
 [node name="MainMenu" parent="." node_paths=PackedStringArray("bubble_spawner") instance=ExtResource("11_k8x3r")]
 bubble_spawner = NodePath("../bubbleSpawner")
 
-[node name="Foam" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("14_3cxwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.245, 1.205, -1.65)
+[node name="FoamLeft" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("14_3cxwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.245, 1.205, -1.735)
 timer = NodePath("../Timer")
 
-[node name="VisualizerMesh" type="MeshInstance3D" parent="Foam/TargetPosition" index="0"]
+[node name="VisualizerMesh" type="MeshInstance3D" parent="FoamLeft/TargetPosition" index="0"]
+visible = false
 mesh = SubResource("SphereMesh_jtg2n")
 
-[node name="VisualizerMesh2" type="MeshInstance3D" parent="Foam"]
+[node name="Foam" type="MeshInstance3D" parent="FoamLeft"]
 mesh = SubResource("SphereMesh_jtg2n")
 skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam2" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, -0.265, -0.65, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam3" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(0.555, 0, 0, 0, 0.555, 0, 0, 0, 0.555, -0.175, -1.14, 0.3)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam4" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.025, -1.705, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam5" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(1.105, 0, 0, 0, 1.105, 0, 0, 0, 1.105, -0.33, -2.45, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam6" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0.03, -3.25, 0.09)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam7" type="MeshInstance3D" parent="FoamLeft"]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 0.23, -3.94, 0.02)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="FoamRight" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("14_3cxwx")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2.245, 1.205, -1.735)
+timer = NodePath("../Timer")
+
+[node name="VisualizerMesh" type="MeshInstance3D" parent="FoamRight/TargetPosition" index="0"]
+visible = false
+mesh = SubResource("SphereMesh_jtg2n")
+
+[node name="Foam" type="MeshInstance3D" parent="FoamRight"]
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam2" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, -0.265, -0.65, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam3" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(0.555, 0, 0, 0, 0.555, 0, 0, 0, 0.555, -0.175, -1.14, 0.3)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam4" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.025, -1.705, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam5" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(1.105, 0, 0, 0, 1.105, 0, 0, 0, 1.105, -0.33, -2.45, 0)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam6" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0.03, -3.25, 0.09)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
+
+[node name="Foam7" type="MeshInstance3D" parent="FoamRight"]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 0.23, -3.94, 0.02)
+mesh = SubResource("SphereMesh_jtg2n")
+skeleton = NodePath("../TargetPosition")
+surface_material_override/0 = ExtResource("14_0y557")
 
 [connection signal="timeout" from="Timer" to="Control" method="activate"]
 
 [editable path="NextBubbleChooser"]
-[editable path="Foam"]
+[editable path="FoamLeft"]
+[editable path="FoamRight"]
