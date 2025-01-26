@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0e1y18636tfy"]
+
+[ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_hmhgn"]
+[ext_resource type="PackedScene" uid="uid://c4vf3jbmcmkdr" path="res://src/ui/button_template.tscn" id="1_t3vr1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmhgn")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -261.0
+offset_right = 266.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="StartButton" parent="Buttons" instance=ExtResource("1_t3vr1")]
+layout_mode = 2
+
+[node name="QuitButton" parent="Buttons" instance=ExtResource("1_t3vr1")]
+layout_mode = 2
+text = "quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -229.0
+offset_right = 229.0
+offset_bottom = 210.0
+grow_horizontal = 2
+text = "Poppie"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

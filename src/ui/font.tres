@@ -1,0 +1,7 @@
+[gd_resource type="SystemFont" format=3 uid="uid://drx6yxr57sjd5"]
+
+[resource]
+font_names = PackedStringArray("Doughnut Monster__G")
+font_weight = 875
+font_stretch = 200
+subpixel_positioning = 0

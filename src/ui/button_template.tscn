@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4vf3jbmcmkdr"]
+
+[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="1_sxll1"]
+
+[sub_resource type="Theme" id="Theme_y36np"]
+Button/fonts/font = ExtResource("1_sxll1")
+Label/fonts/font = ExtResource("1_sxll1")
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_y36np")
+text = "ciao"

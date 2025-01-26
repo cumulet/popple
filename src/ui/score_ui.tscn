@@ -1,13 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwkhrnlfo5sui"]
 
 [ext_resource type="Script" path="res://src/ui/score_ui.gd" id="1_x808s"]
+[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="2_f5xel"]
 [ext_resource type="Texture2D" uid="uid://d04lisskt7p15" path="res://assets/texture/UI/bubbleoutline.png" id="2_r6a5p"]
-
-[sub_resource type="SystemFont" id="SystemFont_2i2t8"]
-font_names = PackedStringArray("Doughnut Monster__G")
-font_weight = 875
-font_stretch = 200
-subpixel_positioning = 0
 
 [node name="ScoreUI" type="Control"]
 layout_mode = 3
@@ -34,7 +29,7 @@ offset_right = 323.0
 offset_bottom = -61.0
 scale = Vector2(2.28043, 2.28043)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_fonts/font = ExtResource("2_f5xel")
 theme_override_font_sizes/font_size = 30
 text = "0"
 vertical_alignment = 1
@@ -47,7 +42,7 @@ offset_right = 315.0
 offset_bottom = -143.0
 rotation = 0.30433
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_fonts/font = ExtResource("2_f5xel")
 theme_override_font_sizes/font_size = 30
 text = "X1"
 horizontal_alignment = 1
@@ -69,7 +64,7 @@ scale = Vector2(0.562759, 0.562759)
 visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_fonts/font = ExtResource("2_f5xel")
 theme_override_font_sizes/font_size = 30
 text = "combo: 0"
 vertical_alignment = 1

@@ -16,9 +16,8 @@ func _ready() -> void:
 	var matInstance2 = mesh_current_bubble.get_active_material(0).duplicate()
 	mesh_current_bubble.set_surface_override_material(0,matInstance2)
 	
-	update_bubbles_in_scene()
-	choose_current_bubble()
-	choose_next_bubble()
+	bubble_spawner.started_spawn.connect(_on_bubble_spawner_started_spawn)
+
 
 func update_bubbles_in_scene():
 	for bubble: Bubble in get_tree().get_nodes_in_group("Bubbles"):
@@ -60,3 +59,8 @@ func choose_next_bubble():
 			next_bubble_color = tmp_next_color
 			Utils.set_custom_albedo_in_mesh(mesh_next_bubble, next_bubble_color)
 			break
+
+func _on_bubble_spawner_started_spawn():
+	update_bubbles_in_scene()
+	choose_current_bubble()
+	choose_next_bubble()

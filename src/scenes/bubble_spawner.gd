@@ -16,9 +16,9 @@ func _ready() -> void:
 		spawn_bubbles(amountAtStart)
 
 func spawn_bubbles(bubble_amount: int):
-	started_spawn.emit()
 	for n in bubble_amount:
 		spawn_bubble(spawnPosition.global_position)
+	started_spawn.emit()
 
 
 func _on_popped(_bubble: Bubble):
