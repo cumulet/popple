@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwkhrnlfo5sui"]
+[gd_scene load_steps=7 format=3 uid="uid://dwkhrnlfo5sui"]
 
 [ext_resource type="Script" path="res://src/ui/score_ui.gd" id="1_x808s"]
-
-[sub_resource type="SystemFont" id="SystemFont_2i2t8"]
-font_names = PackedStringArray("Doughnut Monster__G")
-subpixel_positioning = 0
+[ext_resource type="SystemFont" uid="uid://drx6yxr57sjd5" path="res://src/ui/font.tres" id="2_f5xel"]
 
 [sub_resource type="Animation" id="Animation_34yq8"]
 length = 0.001
@@ -66,6 +63,12 @@ _data = {
 "mu": SubResource("Animation_u3nua")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_2i2t8"]
+font_names = PackedStringArray("Doughnut Monster__G")
+font_weight = 999
+font_stretch = 200
+subpixel_positioning = 0
+
 [node name="ScoreUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -85,30 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Points" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -58.955
-offset_right = 13.0
-offset_bottom = -27.955
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.84, 1.84)
-pivot_offset = Vector2(12.75, 32.73)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Multiplier" type="Label" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -116,16 +96,17 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -146.0
-offset_top = -126.585
+offset_top = -181.0
 offset_right = 146.0
-offset_bottom = -95.585
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = 0.141372
 scale = Vector2(1.355, 1.355)
 pivot_offset = Vector2(145.295, 13.87)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_2i2t8")
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_f5xel")
 theme_override_font_sizes/font_size = 30
 text = "X1"
 horizontal_alignment = 1
@@ -156,3 +137,25 @@ theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "combo: 0"
 vertical_alignment = 1
+
+[node name="Points" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -101.0
+offset_right = 193.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_f5xel")
+theme_override_font_sizes/font_size = 110
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
