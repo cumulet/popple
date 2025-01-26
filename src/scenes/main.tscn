@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=18 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
 [ext_resource type="Texture2D" uid="uid://dqen5wxcmlslm" path="res://assets/texture/UI/target bg.png" id="11_2axpb"]
 [ext_resource type="PackedScene" uid="uid://tegque8x4sul" path="res://src/ui/main_menu.tscn" id="11_k8x3r"]
+[ext_resource type="AudioStream" uid="uid://cjhrt21w2rqyj" path="res://assets/sfx/bathroomambiancce.mp3" id="13_ow344"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tvgnu"]
 
@@ -47,6 +48,7 @@ bubble_spawner = NodePath("../bubbleSpawner")
 visible = false
 
 [node name="Timer" parent="." instance=ExtResource("5_oorbu")]
+wait_time = 15.0
 
 [node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
 visible = false
@@ -87,6 +89,11 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, -1.15334, -3.33438)
 visible = false
 texture = ExtResource("11_2axpb")
+
+[node name="Bathroomambiancce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ow344")
+volume_db = -11.418
+autoplay = true
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("bubble_spawner") instance=ExtResource("11_k8x3r")]
 bubble_spawner = NodePath("../bubbleSpawner")
