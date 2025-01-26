@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcoa2oywovf8u"]
+
+[ext_resource type="Script" path="res://src/scenes/game_timer.gd" id="1_8uery"]
+
+[node name="Timer" type="Timer"]
+wait_time = 5.0
+one_shot = true
+script = ExtResource("1_8uery")

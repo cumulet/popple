@@ -1,6 +1,9 @@
 extends Node
 
 signal score_updated(_new_score)
+signal leaderboard_score_updated(_new_current_scores: Array[float])
+
+var current_scores: Array[float]
 
 var current_hit: int = 0:
 	set(new_value):
@@ -24,3 +27,11 @@ func _ready() -> void:
 		print("score: " + str(points) + 
 		"\nmultiplier " + str(multiplier) + 
 		"\ncurrent_hit " + str(current_hit)) )
+
+
+
+func add_score(_new_score: float):
+	current_scores.append(_new_score)
+	current_scores.sort()
+	current_scores.reverse()
+	leaderboard_score_updated.emit(current_scores)

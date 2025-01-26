@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djja2gjhqmxot"]
+[gd_scene load_steps=9 format=3 uid="uid://djja2gjhqmxot"]
 
 [ext_resource type="Script" path="res://src/ui/end_menu.gd" id="1_4cvxv"]
 [ext_resource type="Texture2D" uid="uid://clr1aktqvbk3x" path="res://assets/texture/UI/restart_menu.png" id="1_kaasa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7sl1hi85q44y" path="res://assets/texture/UI/button_restart3.png" id="3_36hpl"]
 [ext_resource type="Texture2D" uid="uid://bx8x50515c1lf" path="res://assets/texture/UI/button_restart1.png" id="4_wxuve"]
 [ext_resource type="Script" path="res://src/scenes/texture_button.gd" id="5_wdxyb"]
+[ext_resource type="PackedScene" uid="uid://b1brahbdprwt3" path="res://src/ui/leaderboard.tscn" id="7_o4rj3"]
 
 [sub_resource type="SystemFont" id="SystemFont_tppci"]
 font_names = PackedStringArray("Doughnut Monster__G")
@@ -78,3 +79,6 @@ texture_hover = ExtResource("4_wxuve")
 texture_disabled = ExtResource("3_36hpl")
 stretch_mode = 3
 script = ExtResource("5_wdxyb")
+
+[node name="Leaderboard" parent="." instance=ExtResource("7_o4rj3")]
+layout_mode = 1

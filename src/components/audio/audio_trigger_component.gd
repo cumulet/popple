@@ -5,5 +5,4 @@ extends Node
 @export var fade_in: float = 0.0
 
 func _on_event_triggered():
-	print("play audio")
 	AudioManager.play_audio(audio_stream, bus_name, fade_in)

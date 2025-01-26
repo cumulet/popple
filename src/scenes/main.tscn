@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=17 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
 [ext_resource type="PackedScene" uid="uid://c3beq15wqv8f5" path="res://src/physics/collision_system.tscn" id="3_wud0f"]
 [ext_resource type="PackedScene" uid="uid://djja2gjhqmxot" path="res://src/ui/endMenu.tscn" id="4_0te6l"]
+[ext_resource type="PackedScene" uid="uid://dcoa2oywovf8u" path="res://src/scenes/game_timer.tscn" id="5_oorbu"]
 [ext_resource type="PackedScene" uid="uid://dwkhrnlfo5sui" path="res://src/ui/score_ui.tscn" id="6_cpowa"]
 [ext_resource type="ArrayMesh" uid="uid://bmv87bpdpbjb6" path="res://assets/modes/bath.res" id="7_vnfu4"]
 [ext_resource type="Material" uid="uid://fqab1f21pe85" path="res://assets/materials/WATERMAT.tres" id="8_4auxh"]
@@ -28,9 +29,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625579, -1.01131)
 projection = 1
 size = 5.0
 
-[node name="bubbleSpawner" parent="." instance=ExtResource("10_jttyv")]
+[node name="bubbleSpawner" parent="." node_paths=PackedStringArray("game_timer") instance=ExtResource("10_jttyv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.984027, -2.86648)
 amountAtStart = 20
+game_timer = NodePath("../Timer")
 
 [node name="spawnPosition2" type="Node3D" parent="bubbleSpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145769, 0.262236)
@@ -44,9 +46,7 @@ bubble_spawner = NodePath("../bubbleSpawner")
 [node name="NextBubble" parent="NextBubbleChooser" index="1"]
 visible = false
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 40.0
-autostart = true
+[node name="Timer" parent="." instance=ExtResource("5_oorbu")]
 
 [node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
 visible = false

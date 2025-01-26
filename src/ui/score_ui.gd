@@ -17,7 +17,7 @@ func _on_score_updated(_new_score):
 			animation_player.play("mu")
 		localMul = ScoreManager.multiplier
 		multiplier.visible = true
-		multiplier.text = "x: " + str(localMul)
+		multiplier.text = "x " + str(localMul)
 		
 	else:
 		multiplier.visible = false

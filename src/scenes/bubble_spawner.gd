@@ -10,6 +10,7 @@ const BUBBLE = preload("res://src/entities/bubble/bubble.tscn")
 @export var spawnAtStart:bool
 @export var amountAtStart:int = 10
 
+@export var game_timer: Timer
 
 func _ready() -> void:
 	if spawnAtStart:
@@ -18,6 +19,7 @@ func _ready() -> void:
 func spawn_bubbles(bubble_amount: int):
 	for n in bubble_amount:
 		spawn_bubble(spawnPosition.global_position)
+	game_timer.start()
 	started_spawn.emit()
 
 
