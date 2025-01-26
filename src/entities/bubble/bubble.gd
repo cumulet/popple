@@ -16,6 +16,7 @@ const size_bubble_dictionary: = {
 	"Big": Vector3(0.5, 0.5, 0.5)
 }
 
+
 @onready var mesh_bubble: MeshInstance3D = $MeshBubble
 var screenSize = DisplayServer.window_get_size()
 var target_scale: Vector3

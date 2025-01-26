@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://djja2gjhqmxot"]
+[gd_scene load_steps=8 format=3 uid="uid://djja2gjhqmxot"]
 
 [ext_resource type="Script" path="res://src/ui/end_menu.gd" id="1_4cvxv"]
 [ext_resource type="Texture2D" uid="uid://clr1aktqvbk3x" path="res://assets/texture/UI/restart_menu.png" id="1_kaasa"]
 [ext_resource type="Texture2D" uid="uid://dcw2x40ykqbhv" path="res://assets/texture/UI/button_restart0.png" id="2_ui4o1"]
 [ext_resource type="Texture2D" uid="uid://b7sl1hi85q44y" path="res://assets/texture/UI/button_restart3.png" id="3_36hpl"]
-[ext_resource type="Texture2D" uid="uid://mdrvqsod3upw" path="res://assets/texture/UI/score.png" id="3_c2dfw"]
 [ext_resource type="Texture2D" uid="uid://bx8x50515c1lf" path="res://assets/texture/UI/button_restart1.png" id="4_wxuve"]
 [ext_resource type="Script" path="res://src/scenes/texture_button.gd" id="5_wdxyb"]
 
@@ -47,17 +46,6 @@ scale = Vector2(0.505375, 0.505375)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_kaasa")
-
-[node name="TextureRect2" type="TextureRect" parent="CenterContainer/Control"]
-layout_mode = 2
-offset_left = -196.0
-offset_top = -214.0
-offset_right = 316.0
-offset_bottom = 111.0
-scale = Vector2(0.722225, 0.722225)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_c2dfw")
 
 [node name="Label" type="Label" parent="CenterContainer/Control"]
 layout_mode = 2

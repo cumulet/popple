@@ -41,8 +41,7 @@ void fragment() {
 
 	ROUGHNESS = mix(0.1, 0.5, 1.0 - height);
 	SPECULAR = height;
-	ALPHA = fresnel(NORMAL, INV_VIEW_MATRIX);
+	ALPHA = clamp(fresnel(NORMAL, INV_VIEW_MATRIX) +0.2,0.0,1.0);
 	ALBEDO = texture(SCREEN_TEXTURE, offset).xyz*0.5 + albedo_color.rgb;
 }
-
 "

@@ -22,7 +22,7 @@ void fragment() {
 	ALBEDO = albedo.rgb * albedo_tex.rgb;
 	NORMAL = normal_tex.rgb;
 	ROUGHNESS = rough_tex;
-	ALPHA = alpha_tex;
+	ALPHA = 1.0;
 }
 
 //void light() {

@@ -1,13 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwkhrnlfo5sui"]
+[gd_scene load_steps=6 format=3 uid="uid://dwkhrnlfo5sui"]
 
 [ext_resource type="Script" path="res://src/ui/score_ui.gd" id="1_x808s"]
-[ext_resource type="Texture2D" uid="uid://d04lisskt7p15" path="res://assets/texture/UI/bubbleoutline.png" id="2_r6a5p"]
 
 [sub_resource type="SystemFont" id="SystemFont_2i2t8"]
 font_names = PackedStringArray("Doughnut Monster__G")
-font_weight = 875
-font_stretch = 200
 subpixel_positioning = 0
+
+[sub_resource type="Animation" id="Animation_u3nua"]
+resource_name = "mu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.141372, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_34yq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.355, 1.355)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.141372]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m057"]
+_data = {
+"RESET": SubResource("Animation_34yq8"),
+"mu": SubResource("Animation_u3nua")
+}
 
 [node name="ScoreUI" type="Control"]
 layout_mode = 3
@@ -21,37 +78,63 @@ script = ExtResource("1_x808s")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Points" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 31.0
-offset_top = -92.0
-offset_right = 323.0
-offset_bottom = -61.0
-scale = Vector2(2.28043, 2.28043)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -58.955
+offset_right = 13.0
+offset_bottom = -27.955
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.84, 1.84)
+pivot_offset = Vector2(12.75, 32.73)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "0"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Multiplier" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 23.0
-offset_top = -174.0
-offset_right = 315.0
-offset_bottom = -143.0
-rotation = 0.30433
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -126.585
+offset_right = 146.0
+offset_bottom = -95.585
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.141372
+scale = Vector2(1.355, 1.355)
+pivot_offset = Vector2(145.295, 13.87)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "X1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Multiplier"]
+libraries = {
+"": SubResource("AnimationLibrary_0m057")
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -73,47 +156,3 @@ theme_override_fonts/font = SubResource("SystemFont_2i2t8")
 theme_override_font_sizes/font_size = 30
 text = "combo: 0"
 vertical_alignment = 1
-
-[node name="Control2" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_right = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="Control2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -141.0
-offset_right = 363.0
-offset_bottom = 371.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.162449, 0.162449)
-texture = ExtResource("2_r6a5p")
-
-[node name="TextureRect2" type="TextureRect" parent="Control2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -151.0
-offset_top = -40.0
-offset_right = 361.0
-offset_bottom = 472.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.162449, 0.162449)
-texture = ExtResource("2_r6a5p")
