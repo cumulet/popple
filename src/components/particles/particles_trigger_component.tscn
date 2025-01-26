@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://de38efphmr23n"]
+[gd_scene load_steps=3 format=3 uid="uid://de38efphmr23n"]
 
 [ext_resource type="Script" path="res://src/components/particles/particles_trigger_component.gd" id="1_armo3"]
+[ext_resource type="PackedScene" uid="uid://ceh47hg5wu2st" path="res://src/resources/bubble/particles/pop_particles.tscn" id="2_w7c8j"]
 
 [node name="ParticlesTriggerComponent" type="Node"]
 script = ExtResource("1_armo3")
+particles_scene = ExtResource("2_w7c8j")

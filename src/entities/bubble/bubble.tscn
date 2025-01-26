@@ -1,18 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://wrw715mu8cs1"]
+[gd_scene load_steps=19 format=3 uid="uid://wrw715mu8cs1"]
 
 [ext_resource type="Script" path="res://src/entities/bubble/bubble.gd" id="1_6jh01"]
 [ext_resource type="SphereMesh" uid="uid://dmjak73qmuvpw" path="res://src/resources/bubble/mesh/bubble.tres" id="2_v3clf"]
 [ext_resource type="Material" uid="uid://c8ghpq02up3dc" path="res://assets/materials/bubble.tres" id="2_xgs5k"]
 [ext_resource type="PackedScene" uid="uid://dytj1vn0x63o6" path="res://src/components/audio/AudioTriggerComponent.tscn" id="3_7oxpa"]
 [ext_resource type="AudioStream" uid="uid://b7m73lekg8f70" path="res://assets/sfx/240566__onikage22__blip-plock-pop-2.wav" id="4_e3qi7"]
+[ext_resource type="Texture2D" uid="uid://d26mgy1k3p1p5" path="res://assets/texture/bubble/hface.png" id="4_h15pf"]
+[ext_resource type="Script" path="res://src/entities/bubble/sprite_3d.gd" id="5_4wbi8"]
 [ext_resource type="AudioStream" uid="uid://bgmn7aykytj2c" path="res://assets/sfx/240566__onikage22__blip-plock-pop-3.wav" id="5_qiggk"]
 [ext_resource type="AudioStream" uid="uid://cevf2eiiupdqg" path="res://assets/sfx/240566__onikage22__blip-plock-pop-4.wav" id="6_k3tnx"]
 [ext_resource type="AudioStream" uid="uid://cf4rmv28sscqx" path="res://assets/sfx/240566__onikage22__blip-plock-pop-5.wav" id="7_2e6i2"]
 [ext_resource type="AudioStream" uid="uid://cghbgb8vaetip" path="res://assets/sfx/240566__onikage22__blip-plock-pop.wav" id="9_s6adc"]
 [ext_resource type="PackedScene" uid="uid://c1vcr3cuan4v3" path="res://src/resources/bubble/particles/bubble_particles_trigger_component.tscn" id="10_ggtil"]
-[ext_resource type="PackedScene" uid="uid://ceh47hg5wu2st" path="res://src/resources/bubble/particles/pop_particles.tscn" id="11_1phbl"]
+[ext_resource type="Texture2D" uid="uid://bg1yhahpnsam7" path="res://assets/texture/bubble/face.png" id="11_vb74w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gafr6"]
+friction = 0.0
+rough = true
 bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b2tya"]
@@ -36,7 +40,7 @@ stream_0/stream = ExtResource("6_k3tnx")
 [node name="Bubble" type="RigidBody3D" groups=["Bubbles"]]
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_gafr6")
-gravity_scale = 0.01
+gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("1_6jh01")
 
@@ -55,6 +59,15 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_1a62h")
 
+[node name="Sprite3D" type="Sprite3D" parent="MeshBubble"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0.325749)
+billboard = 2
+shaded = true
+texture = ExtResource("4_h15pf")
+script = ExtResource("5_4wbi8")
+face1 = ExtResource("4_h15pf")
+face2 = ExtResource("11_vb74w")
+
 [node name="PopAudioTriggerComponent" parent="." instance=ExtResource("3_7oxpa")]
 audio_stream = SubResource("AudioStreamRandomizer_to1e1")
 bus_name = "SFX"
@@ -65,9 +78,10 @@ bus_name = "SFX"
 
 [node name="BubbleParticlesTriggerComponent" parent="." node_paths=PackedStringArray("bubble") instance=ExtResource("10_ggtil")]
 bubble = NodePath("..")
-particles_scene = ExtResource("11_1phbl")
 
 [connection signal="hovered" from="." to="HoverAudioTriggerComponent" method="_on_event_triggered"]
 [connection signal="popped" from="." to="PopAudioTriggerComponent" method="_on_event_triggered"]
 [connection signal="mouse_entered" from="MeshBubble/TriggerArea3D" to="." method="_on_trigger_area_3d_mouse_entered"]
+[connection signal="mouse_entered" from="MeshBubble/TriggerArea3D" to="MeshBubble/Sprite3D" method="changeHover"]
 [connection signal="mouse_exited" from="MeshBubble/TriggerArea3D" to="." method="_on_trigger_area_3d_mouse_exited"]
+[connection signal="mouse_exited" from="MeshBubble/TriggerArea3D" to="MeshBubble/Sprite3D" method="changeNormal"]

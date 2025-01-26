@@ -17,15 +17,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ScoreManager="*res://src/common/score_manager.gd"
 Utils="*res://src/common/utils.gd"
+ScoreManager="*res://src/common/score_manager.gd"
 AudioManager="*res://src/common/audio_manager.gd"
 ParticlesManager="*res://src/common/particles_manager.gd"
 
 [display]
 
-window/size/viewport_width=1296
-window/size/viewport_height=1296
+window/size/viewport_width=800
+window/size/viewport_height=800
+window/size/resizable=false
 
 [global_group]
 
