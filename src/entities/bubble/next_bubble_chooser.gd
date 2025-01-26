@@ -11,6 +11,7 @@ var next_bubble_size: float
 @onready var mesh_next_bubble: MeshInstance3D = $NextBubble/MeshNextBubble
 
 func _ready() -> void:
+	$CurrentBubble.visible = false
 	var matInstance1 = mesh_next_bubble.get_active_material(0).duplicate()
 	mesh_next_bubble.set_surface_override_material(0,matInstance1)
 	var matInstance2 = mesh_current_bubble.get_active_material(0).duplicate()
@@ -61,6 +62,7 @@ func choose_next_bubble():
 			break
 
 func _on_bubble_spawner_started_spawn():
+	$CurrentBubble.visible = true
 	update_bubbles_in_scene()
 	choose_current_bubble()
 	choose_next_bubble()

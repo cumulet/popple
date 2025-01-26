@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=16 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bwy6hwdm3it3l" path="res://src/entities/bubble/bubble_spawner.tscn" id="10_jttyv"]
 [ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
 [ext_resource type="Texture2D" uid="uid://dqen5wxcmlslm" path="res://assets/texture/UI/target bg.png" id="11_2axpb"]
+[ext_resource type="PackedScene" uid="uid://c0e1y18636tfy" path="res://src/ui/main_menu.tscn" id="11_k8x3r"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tvgnu"]
 
@@ -36,14 +37,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145769, 0.262236)
 
 [node name="collisionSystem" parent="." instance=ExtResource("3_wud0f")]
 
-[node name="NextBubbleChooser" parent="." instance=ExtResource("2_oawiw")]
+[node name="NextBubbleChooser" parent="." node_paths=PackedStringArray("bubble_spawner") instance=ExtResource("2_oawiw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00352108, -1.24075, -2.15389)
+bubble_spawner = NodePath("../bubbleSpawner")
+
+[node name="NextBubble" parent="NextBubbleChooser" index="1"]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 40.0
 autostart = true
 
 [node name="ScoreUI" parent="." instance=ExtResource("6_cpowa")]
+visible = false
 
 [node name="Control" parent="." instance=ExtResource("4_0te6l")]
 visible = false
@@ -77,9 +83,13 @@ surface_material_override/0 = ExtResource("10_yodtd")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." groups=["Props"]]
 transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, -1.15334, -3.33438)
+visible = false
 texture = ExtResource("11_2axpb")
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("bubble_spawner") instance=ExtResource("11_k8x3r")]
+bubble_spawner = NodePath("../bubbleSpawner")
 
 [connection signal="timeout" from="Timer" to="Control" method="activate"]
 
