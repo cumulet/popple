@@ -6,7 +6,7 @@ extends Control
 
 func _on_start_button_pressed() -> void:
 	activate(false)
-	$Buttons/StartButton.grab_focus()
+	#$Buttons/StartButton.grab_focus()
 	bubble_spawner.spawn_bubbles(bubble_spawner.amountAtStart)
 	get_tree().call_group("Props", "show")
 
