@@ -11,9 +11,13 @@ const color_bubble_dictionary: = {
 	"Green": Color.GREEN
 }
 
+#const size_bubble_dictionary: = {
+	#"Small": Vector3(0.3, 0.3, 0.3),
+	#"Big": Vector3(0.5, 0.5, 0.5)
+#}
+
 const size_bubble_dictionary: = {
-	"Small": Vector3(0.3, 0.3, 0.3),
-	"Big": Vector3(0.5, 0.5, 0.5)
+	"Medium": Vector3(0.4, 0.4, 0.4)
 }
 
 

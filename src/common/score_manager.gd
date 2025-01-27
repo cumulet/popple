@@ -15,6 +15,10 @@ var current_hit: int = 0:
 			multiplier += 1
 		elif new_value == 10:
 			multiplier += 1
+		elif new_value == 16:
+			multiplier += 1
+		elif new_value == 20:
+			multiplier +=1
 		elif new_value == 0:
 			multiplier = 1
 		current_hit = new_value
@@ -39,3 +43,6 @@ func add_score(_new_score: float):
 
 func _on_start_game():
 	points = 0.0
+	current_hit = 0
+	multiplier = 1
+	score_updated.emit(points)
