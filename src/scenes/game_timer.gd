@@ -1,7 +1,6 @@
 extends Timer
 
 func _ready() -> void:
-	timeout.connect(_on_timeout)
-
+	pass
 func _on_timeout():
 	ScoreManager.add_score(ScoreManager.points)

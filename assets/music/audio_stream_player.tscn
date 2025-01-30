@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://5lkdw72iorsf"]
+
+[ext_resource type="AudioStream" uid="uid://bn0ypm2nb0vah" path="res://assets/music/popple_chill.mp3" id="1_f2sxd"]
+[ext_resource type="AudioStream" uid="uid://gv4fy42ojdc" path="res://assets/music/popple.mp3" id="2_r1ebi"]
+[ext_resource type="Script" path="res://src/scenes/audio_stream_player.gd" id="3_kek5t"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_7ibyb"]
+clip_count = 2
+clip_0/name = &"Popple Chillchill"
+clip_0/stream = ExtResource("1_f2sxd")
+clip_0/auto_advance = 0
+clip_1/name = &"Popple Chill"
+clip_1/stream = ExtResource("2_r1ebi")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+}
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamInteractive_7ibyb")
+volume_db = -6.0
+autoplay = true
+script = ExtResource("3_kek5t")

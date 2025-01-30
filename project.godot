@@ -13,7 +13,7 @@ config_version=5
 config/name="popple"
 run/main_scene="res://src/scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://ICO.png"
 
 [autoload]
 
@@ -21,12 +21,17 @@ ScoreManager="*res://src/common/score_manager.gd"
 Utils="*res://src/common/utils.gd"
 AudioManager="*res://src/common/audio_manager.gd"
 ParticlesManager="*res://src/common/particles_manager.gd"
+Talo="*res://addons/talo/talo_manager.gd"
 
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=800
 window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 
 [global_group]
 

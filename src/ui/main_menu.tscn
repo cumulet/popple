@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://tegque8x4sul"]
+[gd_scene load_steps=9 format=3 uid="uid://tegque8x4sul"]
 
 [ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_hmhgn"]
 [ext_resource type="Texture2D" uid="uid://d0icdpleych3a" path="res://assets/texture/UI/play1.png" id="3_8xnwa"]
@@ -6,6 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://b3epmfo3qdqbj" path="res://assets/texture/UI/quit1.png" id="5_aq6om"]
 [ext_resource type="Texture2D" uid="uid://38mdgdak40ly" path="res://assets/texture/UI/quit2.png" id="6_tcu8u"]
 [ext_resource type="Texture2D" uid="uid://crhaqvrj0nn8" path="res://assets/texture/UI/title.png" id="7_du3qa"]
+[ext_resource type="Script" path="res://src/ui/line_edit.gd" id="7_hco7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dcjq"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 9
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,19 +44,19 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/Control"]
 layout_mode = 0
 offset_left = -400.0
-offset_top = -400.0
+offset_top = -425.0
 offset_right = 1760.0
-offset_bottom = 1220.0
+offset_bottom = 1195.0
 scale = Vector2(0.365, 0.365)
 mouse_filter = 2
 texture = ExtResource("7_du3qa")
 
 [node name="pay" type="TextureButton" parent="CenterContainer/Control"]
 layout_mode = 0
-offset_left = -137.0
-offset_top = 34.0
-offset_right = 375.0
-offset_bottom = 359.0
+offset_left = -141.0
+offset_top = 86.0
+offset_right = 371.0
+offset_bottom = 411.0
 scale = Vector2(0.53931, 0.53931)
 texture_normal = ExtResource("3_8xnwa")
 texture_pressed = ExtResource("4_o85jt")
@@ -50,14 +64,32 @@ texture_hover = ExtResource("4_o85jt")
 
 [node name="quit" type="TextureButton" parent="CenterContainer/Control"]
 layout_mode = 0
-offset_left = -137.0
-offset_top = 215.0
-offset_right = 375.0
-offset_bottom = 540.0
+offset_left = -141.0
+offset_top = 210.0
+offset_right = 371.0
+offset_bottom = 535.0
 scale = Vector2(0.53931, 0.53931)
 texture_normal = ExtResource("5_aq6om")
 texture_pressed = ExtResource("6_tcu8u")
 texture_hover = ExtResource("6_tcu8u")
 
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/Control"]
+layout_mode = 0
+offset_left = -101.0
+offset_top = 28.0
+offset_right = 92.61
+offset_bottom = 81.785
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_4dcjq")
+placeholder_text = "your name"
+alignment = 1
+max_length = 25
+caret_blink = true
+script = ExtResource("7_hco7j")
+
 [connection signal="pressed" from="CenterContainer/Control/pay" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Control/quit" to="." method="_on_quit_button_pressed"]
+[connection signal="focus_exited" from="CenterContainer/Control/LineEdit" to="CenterContainer/Control/LineEdit" method="_save_name"]
+[connection signal="text_submitted" from="CenterContainer/Control/LineEdit" to="CenterContainer/Control/LineEdit" method="_save_name"]

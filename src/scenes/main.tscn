@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkmgnco2558xt"]
+[gd_scene load_steps=21 format=3 uid="uid://bkmgnco2558xt"]
 
 [ext_resource type="PackedScene" uid="uid://dvmu0aovvcdlv" path="res://src/env/world_environment.tscn" id="1_ixarf"]
 [ext_resource type="PackedScene" uid="uid://cw0rrywq33yqg" path="res://src/entities/bubble/next_bubble_chooser.tscn" id="2_oawiw"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bwy6hwdm3it3l" path="res://src/entities/bubble/bubble_spawner.tscn" id="10_jttyv"]
 [ext_resource type="Material" uid="uid://bvgslum23ryh8" path="res://assets/materials/wa11.tres" id="10_yodtd"]
 [ext_resource type="Texture2D" uid="uid://dqen5wxcmlslm" path="res://assets/texture/UI/target bg.png" id="11_2axpb"]
-[ext_resource type="PackedScene" uid="uid://c0e1y18636tfy" path="res://src/ui/main_menu.tscn" id="11_k8x3r"]
+[ext_resource type="PackedScene" uid="uid://tegque8x4sul" path="res://src/ui/main_menu.tscn" id="11_k8x3r"]
 [ext_resource type="Material" uid="uid://qkbstddqvd3d" path="res://assets/materials/foam.tres" id="14_0y557"]
-[ext_resource type="PackedScene" uid="uid://cxwpjhnhkuup8" path="res://src/entities/foam.tscn" id="14_3cxwx"]
+[ext_resource type="PackedScene" path="res://src/entities/foam.tscn" id="14_3cxwx"]
+[ext_resource type="PackedScene" uid="uid://5lkdw72iorsf" path="res://assets/music/audio_stream_player.tscn" id="16_rdlo1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tvgnu"]
 
@@ -193,7 +194,11 @@ mesh = SubResource("SphereMesh_jtg2n")
 skeleton = NodePath("../TargetPosition")
 surface_material_override/0 = ExtResource("14_0y557")
 
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("16_rdlo1")]
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
 [connection signal="timeout" from="Timer" to="Control" method="activate"]
+[connection signal="timeout" from="Timer" to="AudioStreamPlayer" method="menuMusic"]
 
 [editable path="NextBubbleChooser"]
 [editable path="FoamLeft"]

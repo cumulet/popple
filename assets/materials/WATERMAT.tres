@@ -9,6 +9,7 @@
 render_priority = 0
 shader = ExtResource("1_833ap")
 shader_parameter/albedo = Color(0.567383, 0.637077, 0.875, 1)
+shader_parameter/intensitymovement = 0.1
 shader_parameter/texture_normal = ExtResource("3_0pwvf")
 shader_parameter/texture_rough = ExtResource("4_p4ggo")
 shader_parameter/texture_alpha = ExtResource("2_7b882")

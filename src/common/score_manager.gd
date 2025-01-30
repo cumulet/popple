@@ -3,9 +3,10 @@ extends Node
 
 signal start_game
 signal score_updated(_new_score)
-signal leaderboard_score_updated(_new_current_scores: Array[float])
+signal leaderboard_score_updated(_new_score: float)
 
 var current_scores: Array[float]
+var player_name: String
 
 var current_hit: int = 0:
 	set(new_value):
@@ -36,10 +37,7 @@ func _ready() -> void:
 	start_game.connect(_on_start_game)
 
 func add_score(_new_score: float):
-	current_scores.append(_new_score)
-	current_scores.sort()
-	current_scores.reverse()
-	leaderboard_score_updated.emit(current_scores)
+	leaderboard_score_updated.emit(_new_score)
 
 func _on_start_game():
 	points = 0.0

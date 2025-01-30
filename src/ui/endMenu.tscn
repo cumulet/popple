@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7sl1hi85q44y" path="res://assets/texture/UI/button_restart3.png" id="3_36hpl"]
 [ext_resource type="Texture2D" uid="uid://bx8x50515c1lf" path="res://assets/texture/UI/button_restart1.png" id="4_wxuve"]
 [ext_resource type="Script" path="res://src/scenes/texture_button.gd" id="5_wdxyb"]
-[ext_resource type="PackedScene" uid="uid://j4qp8e87c3c1" path="res://src/ui/leaderboard.tscn" id="7_o4rj3"]
+[ext_resource type="PackedScene" uid="uid://b1brahbdprwt3" path="res://src/ui/leaderboard.tscn" id="7_o4rj3"]
 
 [sub_resource type="SystemFont" id="SystemFont_tppci"]
 font_names = PackedStringArray("Doughnut Monster__G")
